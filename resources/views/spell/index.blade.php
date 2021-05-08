@@ -4,7 +4,7 @@
 @section('content')
     <section class="section">
         <div class="container">
-            <h1>List spells</h1>
+            <spells :all-spells="{{ $spells->load('kind') }}"></spells>
         </div>
     </section>
 @endsection

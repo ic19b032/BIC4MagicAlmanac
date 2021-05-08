@@ -7,7 +7,16 @@ require('./bootstrap');
 
 import vue from 'vue';
 
+/** Funny way to import icon components */
+import {library} from '@fortawesome/fontawesome-svg-core';
+import {faWrench, faTrash} from '@fortawesome/free-solid-svg-icons';
+import {FontAwesomeIcon} from '@fortawesome/vue-fontawesome';
+
+library.add(faWrench, faTrash);
+
 window.Vue = vue;
+
+Vue.use(require('vue-moment'));
 
 /**
  * The following block of code may be used to automatically register your
@@ -16,12 +25,16 @@ window.Vue = vue;
  *
  * Eg. ./components/ExampleComponent.vue -> <example-component></example-component>
  */
+Vue.component('font-awesome-icon', FontAwesomeIcon)
 
 // const files = require.context('./', true, /\.vue$/i)
 // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default))
-
-Vue.component('example-component', require('./components/ExampleComponent.vue').default);
-Vue.component('query-message', require('./components/base/QueryMessage.vue').default);
+Vue.component('dashboard', require('./components/DashboardComponent.vue').default);
+Vue.component('spell', require('./components/SpellComponent.vue').default);
+Vue.component('spells', require('./components/SpellsComponent.vue').default);
+Vue.component('spell-form', require('./components/SpellFormComponent.vue').default);
+Vue.component('spell-list', require('./components/SpellListComponent.vue').default);
+Vue.component('query-message', require('./components/base/QueryMessageComponent.vue').default);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to

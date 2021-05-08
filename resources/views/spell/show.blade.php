@@ -4,7 +4,7 @@
 @section('content')
     <section class="section">
         <div class="container">
-            <h1>Show spell</h1>
+            <spell :current-spell="{{ $spell }}"></spell>
         </div>
     </section>
 @endsection

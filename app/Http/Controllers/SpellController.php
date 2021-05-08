@@ -24,9 +24,7 @@ class SpellController extends Controller
      */
     public function index()
     {
-        $spells = Spell::all()->load('kind');
-
-        return view('spell.index', compact('spells'));
+        return response()->view('spell.index', ['spells' => Spell::all()]);
     }
 
     /**
@@ -42,23 +40,28 @@ class SpellController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
     {
-        return Spell::create($request->validate([
+        $spell = Spell::create($request->validate([
             'name' => 'required',
             'quote' => 'required',
             'description' => 'required',
             'kind_id' => 'required|exists:App\Kind,id'
         ]));
+
+        $spell->{"message"} = "Spell successfully posted!";
+
+        return response($spell, 200)
+            ->header('Content-Type', 'application/json');
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Spell  $spell
+     * @param \App\Spell $spell
      * @return \Illuminate\Http\Response
      */
     public function show(Spell $spell)
@@ -69,40 +72,48 @@ class SpellController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Spell  $spell
+     * @param \App\Spell $spell
      * @return \Illuminate\Http\Response
      */
     public function edit(Spell $spell)
     {
-        return view('spell.edit', compact($spell));
+        return view('spell.edit', compact('spell'));
     }
 
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Spell  $spell
+     * @param \Illuminate\Http\Request $request
+     * @param \App\Spell $spell
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, Spell $spell)
     {
-        return $spell->update($request->validate([
+        if ($spell->update($request->validate([
             'name' => 'required',
             'quote' => 'required',
             'description' => 'required',
             'kind_id' => 'required|exists:App\Kind,id'
-        ]));
+        ])))
+            return response(['message' => "Spell successfully updated!"], 200)
+                ->header('Content-Type', 'application/json');
+        else
+            abort('500');
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Spell  $spell
+     * @param \App\Spell $spell
      * @return \Illuminate\Http\Response
      */
     public function destroy(Spell $spell)
     {
-        return $spell->delete();
+        if ($spell->delete())
+            return response(['message' => "Spell deleted!"], 200)
+                ->header('Content-Type', 'application/json');
+        else
+            abort('500');
     }
 
 
@@ -119,7 +130,7 @@ class SpellController extends Controller
     /**
      * Return search result.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
     public function query(Request $request)
@@ -132,8 +143,8 @@ class SpellController extends Controller
             ->where('name', 'LIKE', "%{$search}%")
             ->orWhere('description', 'LIKE', "%{$search}%")
             ->orWhere('quote', 'LIKE', "%{$search}%")
-            ->orWhereHas('kind', function ($q) use ($search){
-                $q  ->where('name', 'LIKE', "%{$search}%")
+            ->orWhereHas('kind', function ($q) use ($search) {
+                $q->where('name', 'LIKE', "%{$search}%")
                     ->orWhere('description', 'LIKE', "%{$search}%");
             })
             ->with('kind')
@@ -147,6 +158,6 @@ class SpellController extends Controller
      */
     public function list()
     {
-        return Spell::all()->load('kind');
+        return response(Spell::all()->load('kind'), 200)->header('Content-Type', 'application/json');
     }
 }

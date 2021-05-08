@@ -63,7 +63,7 @@
                     </a>
 
                     <div class="navbar-item has-dropdown is-hoverable">
-                        <a class="navbar-link {{ request()->routeIs('spell.index') || request()->routeIs('spell.create') || request()->routeIs('spell.search') ? 'is-active' : '' }}">
+                        <a class="navbar-link {{ request()->routeIs('spell.index') || request()->routeIs('spell.create') ? 'is-active' : '' }}">
                             Spells
                         </a>
 
@@ -75,11 +75,6 @@
                             <a class="navbar-item {{ request()->routeIs('spell.create') ? 'is-active' : '' }}"
                                href="{{ route('spell.create') }}">
                                 Create
-                            </a>
-                            <hr class="navbar-divider">
-                            <a class="navbar-item {{ request()->routeIs('spell.search') ? 'is-active' : '' }}"
-                               href="{{ route('spell.search') }}">
-                                Search
                             </a>
                         </div>
                     </div>
@@ -141,11 +136,11 @@
         @yield('content')
     </div>
 
-    <footer class="footer">
+    {{--<footer class="footer">
         <div class="content has-text-centered">
-            <small>Here comes some footer</small>
+            <small>I <3 frontend development</small>
         </div>
-    </footer>
+    </footer>--}}
 </div>
 </body>
 </html>
