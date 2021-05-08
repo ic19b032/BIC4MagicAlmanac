@@ -52,7 +52,7 @@ class SpellController extends Controller
             'kind_id' => 'required|exists:App\Kind,id'
         ]));
 
-        $spell->{"message"} = "Spell successfully posted!";
+        $spell->{"message"} = "Spell successfully created!";
 
         return response($spell, 200)
             ->header('Content-Type', 'application/json');
@@ -91,7 +91,7 @@ class SpellController extends Controller
     {
         if ($spell->update($request->validate([
             'name' => 'required',
-            'quote' => 'required',
+            'quote' => 'required|max:120',
             'description' => 'required',
             'kind_id' => 'required|exists:App\Kind,id'
         ])))

@@ -9,8 +9,10 @@
 
 // Custom
 @import "custom";
+@import '~animate.css/animate.min.css';
 
 .main {
     background: url("/img/rare.png");
+    background-attachment: fixed;
     background-size: cover;
 }

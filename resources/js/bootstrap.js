@@ -12,15 +12,11 @@ import axios from 'axios';
 import Form from './utilities/Form';
 import QueryMessage from './components/base/QueryMessageComponent';
 import DeleteModal from './components/base/DeleteModalComponent';
-import ErrorBox from './components/base/ErrorBoxComponent';
-import SuccessBox from './components/base/SuccessBoxComponent';
 
 window._ = lodash;
 window.axios = axios;
 window.QueryMessage = QueryMessage;
 window.DeleteModal = DeleteModal;
-window.ErrorBox = ErrorBox;
-window.SuccessBox = SuccessBox;
 window.Form = Form;
 
 // Set token in header for axios to keep requests secure

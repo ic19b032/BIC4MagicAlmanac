@@ -62,10 +62,20 @@ class Form {
                 .then(response => {
                     this.onSuccess(response.data);
 
+                    toast({
+                        message: response.data.message,
+                        type: 'is-success',
+                    });
+
                     resolve(response.data);
                 })
                 .catch(error => {
                     this.onFail(error.response.data);
+
+                    toast({
+                        message: error.data.message,
+                        type: 'is-danger',
+                    });
 
                     reject(error.response.data.errors);
                 });

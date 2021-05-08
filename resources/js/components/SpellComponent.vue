@@ -38,10 +38,6 @@
 </script>
 
 <style scoped>
-    .custom-strong {
-        color: #fff;
-    }
-
     .panel-block {
         display: block;
         background-color: #fff;

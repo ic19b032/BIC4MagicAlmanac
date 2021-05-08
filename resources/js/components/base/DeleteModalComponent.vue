@@ -48,10 +48,12 @@
             },
             callDeleteLink() {
                 axios.delete(this.deleteUrl)
-                    .then(response => this.closeModal({
-                        id: this.entryId,
-                        message: response.data.message
-                    }));
+                    .then(response => {
+                        this.closeModal({
+                            id: this.entryId,
+                            message: response.data.message
+                        });
+                    });
             }
         }
     }

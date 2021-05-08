@@ -19,7 +19,7 @@
                         <i class="fa fa-comment"></i>&nbsp;{{ spell.name }}
                     </a>
                 </td>
-                <td>{{ spell.name }}</td>
+                <td>{{ spell.kind.name }}</td>
                 <td>{{ spell.quote }}</td>
                 <td>{{ spell.created_at | moment('DD.MM.YYYY') }}</td>
                 <td>{{ spell.updated_at | moment('DD.MM.YYYY') }}</td>

@@ -9,8 +9,6 @@
                 </header>
                 <div class="card-content">
                     <div class="content">
-                        <query-message :success="form.isSuccess()" :fail="form.isFail()"
-                                       :message="form.failMessage || form.successMessage"></query-message>
                         <form @submit.prevent="submit">
                             <div class="field" v-if="!edit">
                                 <label class="label" for="name">Name</label>
@@ -27,10 +25,10 @@
                             </div>
 
                             <div class="field">
-                                <label class="label" for="category">Kind</label>
+                                <label class="label" for="kind">Kind</label>
                                 <div class="control">
                                     <div class="select is-fullwidth" :class="loading ? 'is-loading' : ''">
-                                        <select id="category" :disabled="loading" v-model="form.kind_id">
+                                        <select id="kind" :disabled="loading" v-model="form.kind_id">
                                             <option v-if="loading" :value="this.form.kind_id"> Loading...</option>
                                             <option v-for="cat in categories" v-if="!loading" :value="cat.id">
                                                 {{cat.name}}
@@ -40,13 +38,13 @@
                                 </div>
                                 <p class="help is-danger" v-if="form.errors.has('kind_id')">
                                     {{form.errors.get('kind_id')}}
-                                <p v-if="noCategories" class="help is-warning">Add some kind to create spells!</p>
+                                <p v-if="noCategories" class="help is-warning">Add a kind to create spells!</p>
                             </div>
 
                             <div class="field">
                                 <label class="label" for="quote">Quote</label>
                                 <div class="control">
-                                    <textarea id="quote" v-model="form.quote" class="textarea"></textarea>
+                                    <input id="quote" v-model="form.quote" class="input" maxlength="120"/>
                                 </div>
                                 <p class="help is-danger" v-if="form.errors.has('quote')">
                                     {{form.errors.get('quote')}}
@@ -66,7 +64,7 @@
 
                             <button type="submit" class="button is-large is-primary is-outlined is-fullwidth"
                                     :disabled="loading">
-                                {{edit ? 'Save' : 'Post'}}
+                                {{edit ? 'Save' : 'Create'}}
                             </button>
                         </form>
                     </div>

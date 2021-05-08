@@ -14,7 +14,13 @@ import {FontAwesomeIcon} from '@fortawesome/vue-fontawesome';
 
 library.add(faWrench, faTrash);
 
+import {toast, setDefaults} from 'bulma-toast'
+
 window.Vue = vue;
+
+setDefaults({position: 'top-center', animate: {in: 'fadeIn', out: 'fadeOut'}});
+
+window.toast = toast;
 
 Vue.use(require('vue-moment'));
 
@@ -25,7 +31,7 @@ Vue.use(require('vue-moment'));
  *
  * Eg. ./components/ExampleComponent.vue -> <example-component></example-component>
  */
-Vue.component('font-awesome-icon', FontAwesomeIcon)
+Vue.component('font-awesome-icon', FontAwesomeIcon);
 
 // const files = require.context('./', true, /\.vue$/i)
 // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default))
