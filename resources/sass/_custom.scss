@@ -1,6 +1,4 @@
-.main {
-    background: #F7F7F7;
-}
+@import 'variables';
 
 .is-fullheight.columns {
     min-height: calc(100vh - 6.75rem);
@@ -25,23 +23,195 @@
     padding: 0;
     border-radius: 5px;
 
-    header {
-        border-top-left-radius: 5px;
-        border-top-right-radius: 5px;
-    }
-
     .card-header {
         .card-header-title {
             font-size: 1.2rem;
-            font-weight: lighter;
+            font-weight: bold;
         }
     }
 }
 
-.footer{
+.hero.is-fullheight-with-navbar{
+    min-height: calc(100vh - 6.75rem);
+}
+
+//--------------------------------------------------------------------------------------------------------------------//
+
+//background image
+.main {
+    background: url("/img/rare.png");
+    background-attachment: fixed;
+    background-size: cover;
+}
+
+//the background-color of the entire body (shows through on the rounded corners of the navbar and the footer
+body {
+    background-color: $orange-accent;
+}
+
+//change the color and the font-weight of warnings
+.help.is-warning {
+    color: $orange-accent;
+    font-weight: bolder;
+}
+
+//set the border radius of several elements
+.box,
+.button,
+.input,
+.textarea,
+#kind,
+.card-header,
+.custom-card,
+.blog-card,
+.custom-card header,
+.message,
+.message-body,
+table,
+.panel,
+.panel-block {
+    border-radius: 15px;
+}
+
+//push the content of cards down by 25px
+.card,
+.panel {
+    padding-top: 25px;
+}
+
+//change the background-color of cards and boxes
+.card,
+.box,
+.panel {
+    background-color: $dark-green-accent;
+}
+
+//center the text in card-content
+.card-content {
+    text-align: center;
+}
+
+//make the text on the navbar and the navbar-dropdowns bold
+.navbar,
+.navbar-dropdown {
+    font-weight: bold;
+}
+
+//round the bottom corners of the navbar
+.navbar {
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+}
+
+//round the top corners of the footer and height control
+.footer {
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
     height: 0;
 }
 
-.hero.is-fullheight-with-navbar{
-    min-height: calc(100vh - 6.75rem);
+//move the card-header more to the inside of a card and make the card-header background purple
+.card-header {
+    background-color: $purple-accent;
+    margin-left: 24px;
+    margin-right: 24px;
+}
+
+//color the text in a card, a card-head-title, label or a checkbox
+.card,
+.card-header-title,
+.label,
+.checkbox {
+    color: $light-green-accent;
+}
+//when hovering over a navbar-item child of a navbar-link color the hover color too
+.navbar-item:hover > .navbar-link {
+    color: $dark-green-accent;
+}
+
+//when hovering over a navbar-link or over a navbar-item child of a navbar-link color the arrow of the navbar-link in the hover color too
+.navbar-link:hover::after,
+.navbar-item:hover > .navbar-link::after {
+    border-color: $dark-green-accent;
+}
+
+//when a navbar-link is active color the arrow of the navbar-link in the active color too
+.navbar-link.is-active::after {
+    border-color: $purple-accent;
+}
+
+//used for the username on the dashboard
+strong {
+    color: $purple-accent;
+    font-weight: bolder;
+}
+
+//no border between navbar-dropdown and navbar-link
+.navbar-dropdown {
+    border: none;
+}
+
+//setting the border-width of a message-box and moving the text of a message-box to the center
+.message-body {
+    border-width: 3px 4px;
+    text-align: center;
+}
+
+//push the table-container away from the top element
+.table-container {
+    margin-top: 25px;
+}
+
+//setting the size and background-color of a table
+.table {
+    width: 100%;
+    background-color: $light-green-accent;
+}
+
+//setting the text-align and the color of the table
+.table th:not([align]),
+.table td:not([align]){
+    text-align: center;
+    color: $dark-green-accent;
+    font-size: 18px;
+}
+
+//center the buttons in the modify row of a table
+.field.is-grouped {
+    display: inline;
+}
+
+//space out the buttons in the modify row of a table
+.button.is-info.is-outlined.is-small {
+    margin-right: 15px;
+}
+
+//move the panel-heading inwards and add color
+.panel-heading{
+    background-color: $purple-accent;
+    color: $light-green-accent;
+    border-radius: 15px;
+    margin-left: 24px;
+    margin-right: 24px;
+    font-weight: bold;
+}
+
+//remove panel-heading border
+.panel-heading:first-child,
+.panel-block {
+    border: none;
+}
+
+//move the panel-block inwards and add color
+.panel-block{
+    margin-top: 25px;
+    margin-left: 24px;
+    margin-right: 24px;
+    background-color: $light-green-accent;
+    color: $dark-green-accent;
+}
+
+//moving the content in a panel down
+.panel {
+    padding-bottom: 25px;
 }

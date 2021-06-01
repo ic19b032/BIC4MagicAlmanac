@@ -6,6 +6,13 @@ $font-family-sans-serif: 'Nunito', sans-serif;
 $font-size-base: 0.9rem;
 $line-height-base: 1.6;
 
+
+$orange-accent: #e67e22;
+$purple-accent: #34008f;
+$dark-green-accent: #1A6135;
+$green-accent: #3DE07B;
+$light-green-accent: #83E6A9;
+
 // Colors
 $blue: #3490dc;
 $indigo: #6574cd;
@@ -33,20 +40,22 @@ $footer-padding: 1rem 2.5rem 2.5rem;
 $bg-main: #242424;
 $grey-accent: hsl(0, 0%, 10%);
 
-$navbar-background-color: $bg-main;
-$navbar-item-color: $grey-lighter;
-$navbar-item-hover-color: $grey-light;
-$navbar-item-active-color: $primary;
-$navbar-item-hover-background-color: rgba($grey-darker, 0.1);
-$navbar-item-active-background-color: rgba($grey-darker, 0.1);
 
-$navbar-dropdown-item-hover-color: $grey-light;
-$navbar-dropdown-item-active-color: $primary;
-$navbar-dropdown-background-color: $bg-main;
-$navbar-dropdown-item-hover-background-color: $grey-accent;
-$navbar-dropdown-item-active-background-color: $grey-accent;
-$navbar-dropdown-arrow: $grey;
+$navbar-background-color: $dark-green-accent;
+$navbar-item-color: $light-green-accent;
+$navbar-item-hover-color: $dark-green-accent;
+$navbar-item-active-color: $purple-accent;
+$navbar-item-hover-background-color: $light-green-accent;
+$navbar-item-active-background-color: $dark-green-accent;
 
-$footer-background-color: $bg-main;
-$footer-color: $grey-lighter;
+$navbar-dropdown-item-hover-color: $dark-green-accent;
+$navbar-dropdown-item-active-color: $purple-accent;
+$navbar-dropdown-background-color: $dark-green-accent;
+$navbar-dropdown-item-hover-background-color: $light-green-accent;
+$navbar-dropdown-item-active-background-color: $light-green-accent;
+$navbar-dropdown-arrow: $light-green-accent;
 
+$footer-background-color: $dark-green-accent;
+$footer-color: $light-green-accent;
+
+$panel-block-color: $light-green-accent;

@@ -12530,7 +12530,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "\n.panel-block[data-v-f703dd40] {\n    display: block;\n    background-color: #fff;\n    padding: 16px;\n}\n", ""]);
+exports.push([module.i, "\n.panel-block[data-v-f703dd40] {\n    display: block;\n    padding: 16px;\n}\n", ""]);
 
 // exports
 
@@ -30866,7 +30866,7 @@ var render = function() {
         { staticClass: "card blog-card column is-half is-offset-one-quarter" },
         [
           _c("header", { staticClass: "card-header" }, [
-            _c("h1", { staticClass: "card-header-title" }, [
+            _c("h1", { staticClass: "card-header-title is-centered" }, [
               _vm._v(
                 "\n                    " +
                   _vm._s(_vm.title) +

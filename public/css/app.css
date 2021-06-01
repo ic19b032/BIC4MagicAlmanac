@@ -462,7 +462,6 @@ pre {
 }
 
 body {
-  background-color: #e67e22;
   color: #4a4a4a;
   font-size: 1em;
   font-weight: 400;
@@ -1714,7 +1713,7 @@ a.has-text-danger:focus {
 
 .box {
   background-color: white;
-  border-radius: 15px;
+  border-radius: 6px;
   box-shadow: 0 2px 3px rgba(10, 10, 10, 0.1), 0 0 0 1px rgba(10, 10, 10, 0.1);
   color: #4a4a4a;
   display: block;
@@ -1743,7 +1742,6 @@ a.box:active {
   padding-top: calc(0.375em - 1px);
   text-align: center;
   white-space: nowrap;
-  border-radius: 15px;
 }
 
 .button strong {
@@ -4524,7 +4522,6 @@ a.tag:hover {
   border-color: #dbdbdb;
   border-radius: 4px;
   color: #363636;
-  border-radius: 15px;
 }
 
 .select select::-moz-placeholder,
@@ -5719,7 +5716,7 @@ fieldset[disabled] .select select:hover {
 }
 
 .help.is-warning {
-  color: #e67e22;
+  color: #ffed4a;
 }
 
 .help.is-danger {
@@ -6118,15 +6115,10 @@ fieldset[disabled] .select select:hover {
 }
 
 .card-header {
-  background-color: #34008f;
-  vertical-align: center;
-  border-radius: 15px;
+  background-color: #2b0075;
   align-items: stretch;
   box-shadow: 0 1px 2px rgba(10, 10, 10, 0.1);
   display: flex;
-  margin-top: 25px;
-  margin-right: 24px;
-  margin-left: 24px;
 }
 
 .card-header-title {
@@ -6158,7 +6150,6 @@ fieldset[disabled] .select select:hover {
 .card-content {
   background-color: transparent;
   padding: 1.5rem;
-    text-align: center;
 }
 
 .card-footer {
@@ -6851,8 +6842,6 @@ a.list-item {
 
 .navbar {
   background-color: #1A6135;
-  border-bottom-left-radius: 15px;
-    border-bottom-right-radius: 15px;
   min-height: 3.25rem;
   position: relative;
   z-index: 30;
@@ -7620,7 +7609,7 @@ body.has-navbar-fixed-bottom {
 }
 
 .navbar-burger {
-  color: #dbdbdb;
+  color: #83E6A9;
   cursor: pointer;
   display: block;
   height: 3.25rem;
@@ -7702,8 +7691,8 @@ a.navbar-item.is-active,
 .navbar-link:focus-within,
 .navbar-link:hover,
 .navbar-link.is-active {
-  background-color: rgba(54, 54, 54, 0.1);
-  color: #3DE07B;
+  background-color: #83E6A9;
+  color: #1A6135;
 }
 
 .navbar-item {
@@ -7796,7 +7785,7 @@ a.navbar-item.is-active,
   }
 
   .navbar-menu {
-    background-color: #242424;
+    background-color: #1A6135;
     box-shadow: 0 8px 16px rgba(10, 10, 10, 0.1);
     padding: 0.5rem 0;
   }
@@ -7888,12 +7877,12 @@ a.navbar-item.is-active,
 
   .navbar.is-transparent .navbar-dropdown a.navbar-item:focus,
   .navbar.is-transparent .navbar-dropdown a.navbar-item:hover {
-    background-color: #1a1a1a;
-    color: #b5b5b5;
+    background-color: #83E6A9;
+    color: #1A6135;
   }
 
   .navbar.is-transparent .navbar-dropdown a.navbar-item.is-active {
-    background-color: #1a1a1a;
+    background-color: #83E6A9;
     color: #34008f;
   }
 
@@ -7989,12 +7978,12 @@ a.navbar-item.is-active,
 
   .navbar-dropdown a.navbar-item:focus,
   .navbar-dropdown a.navbar-item:hover {
-    background-color: #3DE07B;
-    color: #27613D;
+    background-color: #83E6A9;
+    color: #1A6135;
   }
 
   .navbar-dropdown a.navbar-item.is-active {
-    background-color: #1a1a1a;
+    background-color: #83E6A9;
     color: #34008f;
   }
 
@@ -8078,13 +8067,13 @@ a.navbar-item.is-active,
 
   a.navbar-item.is-active:not(:focus):not(:hover),
   .navbar-link.is-active:not(:focus):not(:hover) {
-    background-color: rgba(54, 54, 54, 0.1);
+    background-color: #1A6135;
   }
 
   .navbar-item.has-dropdown:focus .navbar-link,
   .navbar-item.has-dropdown:hover .navbar-link,
   .navbar-item.has-dropdown.is-active .navbar-link {
-    background-color: rgba(54, 54, 54, 0.1);
+    background-color: #83E6A9;
   }
 }
 
@@ -8323,7 +8312,7 @@ a.navbar-item.is-active,
 
 .panel-block {
   align-items: center;
-  color: #363636;
+  color: #83E6A9;
   display: flex;
   justify-content: flex-start;
   padding: 0.5em 0.75em;
@@ -11730,14 +11719,8 @@ label.panel-block:hover {
 
 .footer {
   background-color: #1A6135;
-  border-top-left-radius: 15px;
-  border-top-right-radius: 15px;
   padding: 1rem 2.5rem 2.5rem;
   color: #83E6A9;
-}
-
-.main {
-  background: #F7F7F7;
 }
 
 .is-fullheight.columns {
@@ -11761,23 +11744,12 @@ label.panel-block:hover {
 
 .custom-card {
   padding: 0;
-  border-radius: 15px;
-}
-
-.custom-card header {
-    margin-top: 25px;
-    margin-left: 24px;
-    margin-right: 24px;
-    border-radius: 15px;
+  border-radius: 5px;
 }
 
 .custom-card .card-header .card-header-title {
   font-size: 1.2rem;
-  font-weight: lighter;
-}
-
-.footer {
-  height: 0;
+  font-weight: bold;
 }
 
 .hero.is-fullheight-with-navbar {
@@ -11790,6 +11762,150 @@ label.panel-block:hover {
   background-size: cover;
 }
 
-.blog-card {
-    border-radius: 15px;
+body {
+  background-color: #e67e22;
 }
+
+.help.is-warning {
+  color: #e67e22;
+  font-weight: bolder;
+}
+
+.box,
+.button,
+.input,
+.textarea,
+#kind,
+.card-header,
+.custom-card,
+.blog-card,
+.custom-card header,
+.message,
+.message-body,
+table,
+.panel,
+.panel-block {
+  border-radius: 15px;
+}
+
+.card,
+.panel {
+  padding-top: 25px;
+}
+
+.card,
+.box,
+.panel {
+  background-color: #1A6135;
+}
+
+.card-content {
+  text-align: center;
+}
+
+.navbar,
+.navbar-dropdown {
+  font-weight: bold;
+}
+
+.navbar {
+  border-bottom-left-radius: 15px;
+  border-bottom-right-radius: 15px;
+}
+
+.footer {
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
+  height: 0;
+}
+
+.card-header {
+  background-color: #34008f;
+  margin-left: 24px;
+  margin-right: 24px;
+}
+
+.card,
+.card-header-title,
+.label,
+.checkbox {
+  color: #83E6A9;
+}
+
+.navbar-item:hover > .navbar-link {
+  color: #1A6135;
+}
+
+.navbar-link:hover::after,
+.navbar-item:hover > .navbar-link::after {
+  border-color: #1A6135;
+}
+
+.navbar-link.is-active::after {
+  border-color: #34008f;
+}
+
+strong {
+  color: #34008f;
+  font-weight: bolder;
+}
+
+.navbar-dropdown {
+  border: none;
+}
+
+.message-body {
+  border-width: 3px 4px;
+  text-align: center;
+}
+
+.table-container {
+  margin-top: 25px;
+}
+
+.table {
+  width: 100%;
+  background-color: #83E6A9;
+}
+
+.table th:not([align]),
+.table td:not([align]) {
+  text-align: center;
+  color: #1A6135;
+  font-size: 18px;
+}
+
+.field.is-grouped {
+  display: inline;
+}
+
+.button.is-info.is-outlined.is-small {
+  margin-right: 15px;
+}
+
+.panel-heading {
+  background-color: #34008f;
+  color: #83E6A9;
+  border-radius: 15px;
+  margin-left: 24px;
+  margin-right: 24px;
+  font-weight: bold;
+}
+
+.panel-heading:first-child,
+.panel-block {
+  border: none;
+}
+
+.panel-block {
+  margin-top: 25px;
+  margin-left: 24px;
+  margin-right: 24px;
+  background-color: #83E6A9;
+  color: #1A6135;
+}
+
+.panel {
+  padding-bottom: 25px;
+}
+

@@ -3,7 +3,7 @@
         <div class="columns is-multiline">
             <div class="card blog-card column is-half is-offset-one-quarter">
                 <header class="card-header">
-                    <h1 class="card-header-title">
+                    <h1 class="card-header-title is-centered">
                         {{title}}
                     </h1>
                 </header>
