@@ -108,6 +108,6 @@ class KindController extends Controller
      */
     public function list()
     {
-        return Kind::all()->load('spells');
+        return Kind::all()->load('kinds');
     }
 }

@@ -19,8 +19,8 @@
                         <i class="fa fa-comment"></i>&nbsp;{{ kind.name }}
                     </a>
                 </td>
-                <td>{{ kind.kind.name }}</td>
-                <td>{{ kind.quote }}</td>
+                <td>{{ kind.name }}</td>
+                <td>{{ kind.description }}</td>
                 <td>{{ kind.created_at | moment('DD.MM.YYYY') }}</td>
                 <td>{{ kind.updated_at | moment('DD.MM.YYYY') }}</td>
                 <td>
@@ -30,7 +30,7 @@
                                 <font-awesome-icon icon="wrench"/>
                             </span>
                         </a>
-                        <button @click="openDeleteModal(spell)"
+                        <button @click="openDeleteModal(kind)"
                                 class="button is-danger is-outlined is-small">
                             <span class="icon">
                                 <font-awesome-icon icon="trash"/>
@@ -48,7 +48,7 @@
 export default {
     name: "KindListComponent",
     props: {
-        spells: {
+        kinds: {
             required: true
         }
     },
