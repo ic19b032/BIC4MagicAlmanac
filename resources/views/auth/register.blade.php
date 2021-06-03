@@ -58,7 +58,7 @@
                                     </div>
                                 </div>
 
-                                <button type="submit" class="button is-large is-primary is-outlined is-fullwidth">
+                                <button type="submit" class="button is-large is-primary is-outlined is-fullwidth push-button-down">
                                     {{ __('Register') }}
                                 </button>
                             </form>

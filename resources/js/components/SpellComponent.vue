@@ -36,10 +36,3 @@
         },
     }
 </script>
-
-<style scoped>
-    .panel-block {
-        display: block;
-        padding: 16px;
-    }
-</style>

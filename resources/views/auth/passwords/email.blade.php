@@ -32,7 +32,7 @@
                                     <p class="help is-danger">{{ $message }}</p>
                                     @enderror
                                 </div>
-                                <button type="submit" class="button is-large is-primary is-outlined is-fullwidth">
+                                <button type="submit" class="button is-large is-primary is-outlined is-fullwidth push-button-down">
                                     {{ __('Send Password Reset Link') }}
                                 </button>
                             </form>

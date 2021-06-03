@@ -37,16 +37,11 @@
 
 //--------------------------------------------------------------------------------------------------------------------//
 
-//background image
-.main {
+//the background-color of the entire body (shows through on the rounded corners of the navbar and the footer
+body {
     background: url("/img/rare.png");
     background-attachment: fixed;
     background-size: cover;
-}
-
-//the background-color of the entire body (shows through on the rounded corners of the navbar and the footer
-body {
-    background-color: $orange-accent;
 }
 
 //change the color and the font-weight of warnings
@@ -86,9 +81,30 @@ table,
     background-color: $dark-green-accent;
 }
 
-//center the text in card-content
+//adding a padding a card (that is uniform all around unlike the default behaviour)
+.card {
+    padding: 25px;
+}
+
+//center the text in card-content and disable padding on left, right, and bottom
 .card-content {
     text-align: center;
+    padding-bottom: 0px;
+    padding-left: 0px;
+    padding-right: 0px;
+}
+
+//move the card-header more to the inside of a card and make the card-header background purple
+.card-header {
+    background-color: $purple-accent;
+}
+
+//color the text in a card, a card-head-title, label or a checkbox
+.card,
+.card-header-title,
+.label,
+.checkbox {
+    color: $light-green-accent;
 }
 
 //make the text on the navbar and the navbar-dropdowns bold
@@ -103,33 +119,12 @@ table,
     border-bottom-right-radius: 15px;
 }
 
-//round the top corners of the footer and height control
-.footer {
-    border-top-left-radius: 15px;
-    border-top-right-radius: 15px;
-    height: 0;
-}
-
-//move the card-header more to the inside of a card and make the card-header background purple
-.card-header {
-    background-color: $purple-accent;
-    margin-left: 24px;
-    margin-right: 24px;
-}
-
-//color the text in a card, a card-head-title, label or a checkbox
-.card,
-.card-header-title,
-.label,
-.checkbox {
-    color: $light-green-accent;
-}
-//when hovering over a navbar-item child of a navbar-link color the hover color too
+//when hovering over a navbar-item child of a navbar-link will be in the hover color too
 .navbar-item:hover > .navbar-link {
     color: $dark-green-accent;
 }
 
-//when hovering over a navbar-link or over a navbar-item child of a navbar-link color the arrow of the navbar-link in the hover color too
+//when hovering over a navbar-link or over a navbar-item child of a navbar-link color the arrow of the navbar-link will be in the hover color too
 .navbar-link:hover::after,
 .navbar-item:hover > .navbar-link::after {
     border-color: $dark-green-accent;
@@ -139,13 +134,6 @@ table,
 .navbar-link.is-active::after {
     border-color: $purple-accent;
 }
-
-//used for the username on the dashboard
-strong {
-    color: $purple-accent;
-    font-weight: bolder;
-}
-
 //no border between navbar-dropdown and navbar-link
 .navbar-dropdown {
     border: none;
@@ -156,6 +144,20 @@ strong {
     border-width: 3px 4px;
     text-align: center;
 }
+
+//round the top corners of the footer and height control
+.footer {
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    height: 0;
+}
+
+//used for the username on the dashboard
+strong {
+    color: $purple-accent;
+    font-weight: bolder;
+}
+
 
 //push the table-container away from the top element
 .table-container {
@@ -168,7 +170,13 @@ strong {
     background-color: $light-green-accent;
 }
 
-//setting the text-align and the color of the table
+//change the color of the border of tables
+.table th,
+.table td {
+    border-color: $purple-accent;
+}
+
+//setting the text-align and the color of the table (header and content need separate mentions)
 .table th:not([align]),
 .table td:not([align]){
     text-align: center;
@@ -203,15 +211,91 @@ strong {
 }
 
 //move the panel-block inwards and add color
-.panel-block{
+.panel-block {
     margin-top: 25px;
     margin-left: 24px;
     margin-right: 24px;
     background-color: $light-green-accent;
     color: $dark-green-accent;
+    padding: 16px;
 }
 
-//moving the content in a panel down
+//moving the content in a panel away from the edge (needed for the item detail page)
 .panel {
     padding-bottom: 25px;
+}
+
+//make the action buttons in a table stay in a line
+#modify-column-element {
+    display: inline-flex;
+}
+
+//table column titles in ine line (no multi line)
+.header-warp-override {
+    white-space: nowrap;
+}
+
+//pushing big action button down on register, reset password, create item and edit item pages
+.push-button-down {
+    margin-top: 25px;
+}
+
+//do color-change animation when hover over the footer text
+#footer-text:hover {
+    animation: color-change 20s infinite;
+}
+
+//the color keyframes for the color-change animation
+@keyframes color-change {
+    0% {
+        color: $light-green-accent;
+    }
+    25% {
+        color: $light-green-accent;
+    }
+    50% {
+        color: $purple-accent;
+    }
+    75% {
+        color: $orange-accent;
+    }
+    100% {
+        color: $light-green-accent;
+    }
+}
+
+//change the color of the welcome text
+#welcome-text {
+    color: $purple-accent;
+}
+
+//font for the project
+body,
+button,
+input,
+select,
+textarea {
+    font-family: "Comic Sans MS", cursive;
+}
+
+//text color of links
+a {
+    color: $blue-accent;
+}
+
+//text color when hover over links
+a:hover {
+    color: white;
+}
+
+//change the color of the delete buttons in a table
+.button.is-danger.is-outlined {
+    color: $red-accent;
+    border-color: $red-accent;
+}
+
+//change the color of the edit buttons in a table
+.button.is-info.is-outlined {
+    color: $blue-accent;
+    border-color: $blue-accent;
 }

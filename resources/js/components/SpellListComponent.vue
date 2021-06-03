@@ -3,12 +3,12 @@
         <table class="table">
             <thead>
             <tr class="title is-7">
-                <th>Name</th>
-                <th>Kind</th>
-                <th>Quote</th>
-                <th>Created</th>
-                <th>Modified</th>
-                <th>Modify</th>
+                <th class="header-warp-override">Name</th>
+                <th class="header-warp-override">Kind</th>
+                <th class="header-warp-override">Quote</th>
+                <th class="header-warp-override">Created</th>
+                <th class="header-warp-override">Modified</th>
+                <th class="header-warp-override">Modify</th>
             </tr>
             </thead>
             <tbody>
@@ -24,7 +24,7 @@
                 <td>{{ spell.created_at | moment('DD.MM.YYYY') }}</td>
                 <td>{{ spell.updated_at | moment('DD.MM.YYYY') }}</td>
                 <td>
-                    <p class="field is-grouped">
+                    <p class="field is-grouped" id="modify-column-element">
                         <a :href="'/spell/' + spell.slug + '/edit'" class="button is-info is-outlined is-small">
                             <span class="icon">
                                 <font-awesome-icon icon="wrench"/>
@@ -65,7 +65,3 @@
         }
     }
 </script>
-
-<style scoped>
-
-</style>
