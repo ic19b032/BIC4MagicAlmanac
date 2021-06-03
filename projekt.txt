@@ -1,0 +1,55 @@
+Controller:
+app -> http -> controller
+
+Models:
+app
+
+Views:
+resources -> Views
+
+
+verwenden eine RESTApi
+
+damit es für den Controller zugänglich wird:
+unter routes --> web.php sind die Routen eingetragen;
+Verbindungen/Routen, damit der COntroller von außen angesprochen wird
+
+z.B.:
+Route "/" beim GuestController
+Route::get('/', 'GuestController@index')->name('welcome');
+im GuestController.php: wenn index() aufgerufen wird, soll er die view("welcome") anzeigen
+-> "welcome.blade.php" wird angezeigt, wenn wir "/" aufrufen
+
+
+blade ist eine engine, die die PHP templates verarbeitet;
+HTML template
+
+z.B.:
+"@extends('layouts.app')" in "home.blade.php
+@section('content')
+@endsection
+-> dadurch muss man nicht alles, was in layouts -> app.blade.php drin ist, jedes mal neu schreiben
+sondern das file, welches app.blade.php extended, wird in app.blade.php unten mit:
+        @yield('content')
+eingebunden
+
+blade ist im Endeffekt eine kleine library, die hilft, mit den HTML templates zu arbeiten
+
+
+
+
+VUE:
+resources -> js -> components
+
+vue.js arbeitet mit komponenten, die regelmäßig den DOM mit dem synchronisieren, was eingeben wird bzw. welche events vorkommen
+d.h. wenn eine Liste vom Server übers Backend geholt wird, und das Vue JS Objekt hat schon eine Liste, dann wird diese Liste direkt aktualisiert (flüssig für den User, es flackert nicht und muss auch nicht reloaden)
+
+jede Komponente hat ein <template> und "props"
+<template> gibt an, wie das HTML ausschaut
+"props" gibt an, welche Eigenschaften die Komponente haben soll
+
+
+
+
+
+

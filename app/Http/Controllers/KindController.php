@@ -24,9 +24,14 @@ class KindController extends Controller
      */
     public function index()
     {
-        $kinds = Kind::all()->load('spells');
+//        $kinds = Kind::all();
+//        $kinds = Kind::all()->load('spells');
 
-        return view('kind.index', compact('kinds'));
+//        return view('kind.index', compact('kinds'));
+
+        return response()->view('kind.index', ['kinds' => Kind::all()]);
+
+
     }
 
     /**
@@ -47,10 +52,20 @@ class KindController extends Controller
      */
     public function store(Request $request)
     {
-        return Kind::create($request->validate([
+//        return Kind::create($request->validate([
+//            'name' => 'required',
+//            'description' => 'required'
+//        ]));
+        $kind = Kind::create($request->validate([
             'name' => 'required',
             'description' => 'required'
         ]));
+
+        $kind->{"message"} = "Kind successfully created!";
+
+        return response($kind, 200)
+            ->header('Content-Type', 'application/json');
+
     }
 
     /**
@@ -84,10 +99,19 @@ class KindController extends Controller
      */
     public function update(Request $request, Kind $kind)
     {
-        return $kind->update($request->validate([
+//        return $kind->update($request->validate([
+//            'name' => 'required',
+//            'description' => 'required'
+//        ]));
+        if ($kind->update($request->validate([
             'name' => 'required',
             'description' => 'required'
-        ]));
+        ])))
+            return response(['message' => "Kind successfully updated!"], 200)
+                ->header('Content-Type', 'application/json');
+        else
+            abort('500');
+
     }
 
     /**
@@ -98,7 +122,13 @@ class KindController extends Controller
      */
     public function destroy(Kind $kind)
     {
-        $kind->delete();
+//        $kind->delete();
+        if ($kind->delete())
+            return response(['message' => "Kind deleted!"], 200)
+                ->header('Content-Type', 'application/json');
+        else
+            abort('500');
+
     }
 
     /**
@@ -108,6 +138,12 @@ class KindController extends Controller
      */
     public function list()
     {
-        return Kind::all()->load('spells');
+//        return Kind::all()->load('spells');
+//        return Kind::all();
+//        return response(Kind::all(), 200)->header('Content-Type', 'application/json');
+//        return response(Kind::all()->load('spell'), 200)->header('Content-Type', 'application/json');
+        return response(Kind::all()->load('spells'), 200)->header('Content-Type', 'application/json');
+
+
     }
 }

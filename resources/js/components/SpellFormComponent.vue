@@ -4,6 +4,7 @@
             <div class="card blog-card column is-half is-offset-one-quarter">
                 <header class="card-header">
                     <h1 class="card-header-title is-centered">
+<!--                        wird ein Eintrag editiert? ja, dann zeig den namen des eintrags an; nein, dann zeige "New spell" an -->
                         {{edit ? form.name : 'New spell'}}
                     </h1>
                 </header>

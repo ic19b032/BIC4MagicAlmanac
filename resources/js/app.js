@@ -36,6 +36,7 @@ Vue.component('font-awesome-icon', FontAwesomeIcon);
 // const files = require.context('./', true, /\.vue$/i)
 // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default))
 Vue.component('dashboard', require('./components/DashboardComponent.vue').default);
+
 Vue.component('spell', require('./components/SpellComponent.vue').default);
 Vue.component('spells', require('./components/SpellsComponent.vue').default);
 Vue.component('spell-form', require('./components/SpellFormComponent.vue').default);

@@ -3,12 +3,12 @@
         <table class="table">
             <thead>
             <tr class="title is-7">
-                <th>Name</th>
-                <th>Kind</th>
-                <th>Quote</th>
-                <th>Created</th>
-                <th>Modified</th>
-                <th>Modify</th>
+                <th class="header-warp-override">Name</th>
+<!--                <th class="header-warp-override">Kind</th>-->
+<!--                <th class="header-warp-override">Description</th>-->
+                <th class="header-warp-override">Created</th>
+                <th class="header-warp-override">Modified</th>
+                <th class="header-warp-override">Modify</th>
             </tr>
             </thead>
             <tbody>
@@ -19,8 +19,8 @@
                         <i class="fa fa-comment"></i>&nbsp;{{ kind.name }}
                     </a>
                 </td>
-                <td>{{ kind.kind.name }}</td>
-                <td>{{ kind.quote }}</td>
+<!--                <td>{{ kind.kind.name }}</td>-->
+<!--                <td>{{ kind.description }}</td>-->
                 <td>{{ kind.created_at | moment('DD.MM.YYYY') }}</td>
                 <td>{{ kind.updated_at | moment('DD.MM.YYYY') }}</td>
                 <td>
@@ -30,7 +30,7 @@
                                 <font-awesome-icon icon="wrench"/>
                             </span>
                         </a>
-                        <button @click="openDeleteModal(spell)"
+                        <button @click="openDeleteModal(kind)"
                                 class="button is-danger is-outlined is-small">
                             <span class="icon">
                                 <font-awesome-icon icon="trash"/>
@@ -48,7 +48,7 @@
 export default {
     name: "KindListComponent",
     props: {
-        spells: {
+        kinds: { // war noch auf "spells"
             required: true
         }
     },
@@ -58,7 +58,7 @@ export default {
                 {
                     id: kind.id,
                     title: kind.name,
-                    content: 'Do you really want to delete this spell?',
+                    content: 'Do you really want to delete this kind?',
                     url: '/kind/' + kind.slug
                 });
         }
@@ -66,6 +66,6 @@ export default {
 }
 </script>
 
-<style scoped>
+<!--<style scoped>-->
 
-</style>
+<!--</style>-->

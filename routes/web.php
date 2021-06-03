@@ -17,9 +17,13 @@ Route::get('/', 'GuestController@index')->name('welcome');
 
 Auth::routes();
 
+// nach erfolgreichem Login:
 Route::get('/home', 'HomeController@index')->name('home');
 
+// Spells --> List:
 Route::resource('spell', 'SpellController');
+
+// Kind --> List:
 Route::resource('kind', 'KindController');
 
 Route::get('/search/spell', 'SpellController@search')->name('spell.search');

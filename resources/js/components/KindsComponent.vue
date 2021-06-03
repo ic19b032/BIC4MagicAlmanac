@@ -6,12 +6,12 @@
                     <query-message :fail="true" :success="false" :message="'No kinds found'"
                                    v-if="!kinds.length"></query-message>
                 </div>
-                <div class="box custom-box" v-if="kinds.length">
-                    <input class="input is-primary" type="text" placeholder="Search kind..." id="filter"
-                           v-model="search">
-                    <spell-list :spells="search.length > 0 ? filteredKinds : kinds"
-                                v-on:open-modal="setModal"></spell-list>
-                </div>
+<!--                <div class="box custom-box" v-if="kinds.length">-->
+<!--                    <input class="input is-primary" type="text" placeholder="Search kind..." id="filter"-->
+<!--                           v-model="search">-->
+<!--                    <spell-list :spells="search.length > 0 ? filteredKinds : kinds"-->
+<!--                                v-on:open-modal="setModal"></spell-list>-->
+<!--                </div>-->
             </div>
         </div>
         <delete-modal :title="modalTitle" :delete-url="modalUrl" :active="modalActive" :content="modalContent"
@@ -27,8 +27,9 @@ export default {
 
     data(){
         return{
-            fields: ['name', 'quote', 'description', 'created_ar', 'updated_at'],
-            search: '',
+            // 'quote' raus (da kinds Tabelle kein 'quote' hat); RS Fehler bei 'created_ar'
+            fields: ['name', 'description', 'created_at', 'updated_at'],
+            // search: '',
             kinds: [],
             modalActive: false,
             modalTitle: '',
@@ -69,20 +70,22 @@ export default {
         this.kinds = this.allKinds;
     },
     computed: {
-        filteredKinds() {
-            const search = this.search.toLowerCase();
-            return this.kinds.filter((kinds) => {
-                let filter = false;
-                this.fields.forEach(function (entry) {
-                    if (kinds[entry].toLowerCase().match(search)
-                        || kinds.kind.name.toLowerCase().match(search)
-                        || kinds.kind.description.toLowerCase().match(search)) {
-                        filter = true;
-                    }
-                });
-                return filter ? kinds : false;
-            });
-        }
+        // filteredKinds() {
+        //     const search = this.search.toLowerCase();
+        //     return this.kinds.filter((kinds) => {
+        //         let filter = false;
+        //         this.fields.forEach(function (entry) {
+        //             if (kinds[entry].toLowerCase().match(search)
+        //                 // || kinds.kind.name.toLowerCase().match(search)
+        //                 // || kinds.kind.description.toLowerCase().match(search)
+        //                 )
+        //             {
+        //                 filter = true;
+        //             }
+        //         });
+        //         return filter ? kinds : false;
+        //     });
+        // }
     }
 }
 </script>
