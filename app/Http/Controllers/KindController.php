@@ -25,11 +25,11 @@ class KindController extends Controller
     public function index()
     {
 //        $kinds = Kind::all();
-//        $kinds = Kind::all()->load('spells');
+        $kinds = Kind::all()->load('spells');
 
-//        return view('kind.index', compact('kinds'));
+        return view('kind.index', compact('kinds'));
 
-        return response()->view('kind.index', ['kinds' => Kind::all()]);
+//        return response()->view('kind.index', ['kinds' => Kind::all()]);
 
 
     }
@@ -111,7 +111,6 @@ class KindController extends Controller
                 ->header('Content-Type', 'application/json');
         else
             abort('500');
-
     }
 
     /**
@@ -138,12 +137,10 @@ class KindController extends Controller
      */
     public function list()
     {
-//        return Kind::all()->load('spells');
+        return Kind::all()->load('spells');
 //        return Kind::all();
 //        return response(Kind::all(), 200)->header('Content-Type', 'application/json');
 //        return response(Kind::all()->load('spell'), 200)->header('Content-Type', 'application/json');
-        return response(Kind::all()->load('spells'), 200)->header('Content-Type', 'application/json');
-
-
+//        return response(Kind::all()->load('spells'), 200)->header('Content-Type', 'application/json');
     }
 }

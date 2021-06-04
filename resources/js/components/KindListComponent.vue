@@ -4,8 +4,8 @@
             <thead>
             <tr class="title is-7">
                 <th class="header-warp-override">Name</th>
-<!--                <th class="header-warp-override">Kind</th>-->
-<!--                <th class="header-warp-override">Description</th>-->
+                <th class="header-warp-override">Kind</th>
+                <th class="header-warp-override">Description</th>
                 <th class="header-warp-override">Created</th>
                 <th class="header-warp-override">Modified</th>
                 <th class="header-warp-override">Modify</th>
@@ -24,7 +24,7 @@
                 <td>{{ kind.created_at | moment('DD.MM.YYYY') }}</td>
                 <td>{{ kind.updated_at | moment('DD.MM.YYYY') }}</td>
                 <td>
-                    <p class="field is-grouped">
+                    <p class="field is-grouped" id="modify-column-element"> <!-- id="modify-column-element" notwendig, damit "bearbeiten" und "löschen" symbol schön nebeneinander -->
                         <a :href="'/kind/' + kind.slug + '/edit'" class="button is-info is-outlined is-small">
                             <span class="icon">
                                 <font-awesome-icon icon="wrench"/>

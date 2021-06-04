@@ -64,7 +64,7 @@
 
                             <button type="submit" class="button is-large is-primary is-outlined is-fullwidth push-button-down"
                                     :disabled="loading">
-                                {{edit ? 'Save' : 'wasd'}}
+                                {{edit ? 'Save' : 'Create'}}
                             </button>
                         </form>
                     </div>
@@ -136,7 +136,7 @@ export default {
         }
     },
     created() {
-        axios.get('/list/spell')
+        axios.get('/list/kind')
             .then(response => {
                 this.categories = response.data;
 
@@ -169,13 +169,13 @@ export default {
 
     watch: {
         categories() {
-            // if (!this.loading && this.form.kind_id === '') {
+            if (!this.loading && this.form.kind_id === '') {
             // if (!this.loading) {
-                // this.form.kind_id = _.first(this.categories).id;
+                this.form.kind_id = _.first(this.categories).id;
             }
         }
     }
 
 
-// }
+}
 </script>

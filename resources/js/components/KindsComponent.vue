@@ -6,7 +6,7 @@
                     <query-message :fail="true" :success="false" :message="'No kinds found'"
                                    v-if="!kinds.length"></query-message>
                 </div>
-                <div class="box custom-box" v-if="kinds.length">
+                <div class="box custom-box" v-if="kinds.length"> <!-- BRAUCHT MAN für kinds.list, also die Liste!!  -->
 <!--                    <input class="input is-primary" type="text" placeholder="Search kind..." id="filter"-->
 <!--                           v-model="search">-->
                     <kind-list :kinds="search.length > 0 ? filteredKinds : kinds"
@@ -29,7 +29,11 @@ export default {
         return{
             // 'quote' raus (da kinds Tabelle kein 'quote' hat); RS Fehler bei 'created_ar'
             fields: ['name', 'description', 'created_at', 'updated_at'],
-            // search: '',
+            // fields: ['name', 'quote', 'description', 'created_at', 'updated_at'],
+
+            // SEARCH DARF NICHT RAUS !!!!
+
+            search: '',
             kinds: [],
             modalActive: false,
             modalTitle: '',
@@ -76,8 +80,8 @@ export default {
         //         let filter = false;
         //         this.fields.forEach(function (entry) {
         //             if (kinds[entry].toLowerCase().match(search)
-        //                 // || kinds.kind.name.toLowerCase().match(search)
-        //                 // || kinds.kind.description.toLowerCase().match(search)
+        //                 || kinds.kind.name.toLowerCase().match(search)
+        //                 || kinds.kind.description.toLowerCase().match(search)
         //                 )
         //             {
         //                 filter = true;
