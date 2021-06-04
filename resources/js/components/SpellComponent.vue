@@ -20,17 +20,6 @@
                     <div class="level">
                         <div class="level-left">
                             <p class="level-item has-text-centered">
-                                Kind:
-                            </p>
-                        </div>
-                        <div class="level-right">
-                            <p class="level-item has-text-centered" v-text="this.spell.kind_id"/>
-                        </div>
-                    </div>
-
-                    <div class="level">
-                        <div class="level-left">
-                            <p class="level-item has-text-centered">
                                 Quote:
                             </p>
                         </div>
