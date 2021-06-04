@@ -6,12 +6,12 @@
                     <query-message :fail="true" :success="false" :message="'No kinds found'"
                                    v-if="!kinds.length"></query-message>
                 </div>
-<!--                <div class="box custom-box" v-if="kinds.length">-->
+                <div class="box custom-box" v-if="kinds.length">
 <!--                    <input class="input is-primary" type="text" placeholder="Search kind..." id="filter"-->
 <!--                           v-model="search">-->
-<!--                    <spell-list :spells="search.length > 0 ? filteredKinds : kinds"-->
-<!--                                v-on:open-modal="setModal"></spell-list>-->
-<!--                </div>-->
+                    <kind-list :kinds="search.length > 0 ? filteredKinds : kinds"
+                                v-on:open-modal="setModal"></kind-list>
+                </div>
             </div>
         </div>
         <delete-modal :title="modalTitle" :delete-url="modalUrl" :active="modalActive" :content="modalContent"

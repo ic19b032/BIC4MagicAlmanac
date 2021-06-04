@@ -11780,7 +11780,9 @@ body {
 .message-body,
 table,
 .panel,
-.panel-block {
+.panel-block,
+.modal-card,
+.notification {
   border-radius: 15px;
 }
 
@@ -11791,7 +11793,9 @@ table,
 
 .card,
 .box,
-.panel {
+.panel,
+.modal-card-body,
+.modal-card-foot {
   background-color: #1A6135;
 }
 
@@ -11806,14 +11810,17 @@ table,
   padding-right: 0px;
 }
 
-.card-header {
+.card-header,
+.modal-card-head {
   background-color: #34008f;
 }
 
 .card,
 .card-header-title,
 .label,
-.checkbox {
+.checkbox,
+.modal-card-title,
+.modal-card-body {
   color: #83E6A9;
 }
 
@@ -11840,7 +11847,9 @@ table,
   border-color: #34008f;
 }
 
-.navbar-dropdown {
+.navbar-dropdown,
+.modal-card-head,
+.modal-card-foot {
   border: none;
 }
 
@@ -12005,5 +12014,32 @@ a:hover {
 .button.is-info.is-outlined {
   color: #231CFA;
   border-color: #231CFA;
+}
+
+.modal-card {
+  text-align: center;
+}
+
+.modal-card-body {
+  font-size: 18px;
+}
+
+.modal-card-foot-buttons {
+  margin: auto;
+}
+
+.modal-card-foot .button:not(:last-child) {
+  margin-right: 4.5em;
+}
+
+.button.is-light,
+.button.is-light:hover {
+  background-color: #83E6A9;
+  border-color: transparent;
+  color: #1A6135;
+}
+
+.table-container.no-margin {
+  margin: 0px;
 }
 

@@ -10,8 +10,10 @@
                 {{ content }}
             </section>
             <footer class="modal-card-foot">
-                <button class="button is-danger" @click="callDeleteLink">Delete</button>
-                <button class="button" @click="closeModal({id: 0})">Cancel</button>
+                <div class="modal-card-foot-buttons">
+                    <button class="button is-danger" @click="callDeleteLink">Delete</button>
+                    <button class="button is-light" @click="closeModal({id: 0})">Cancel</button>
+                </div>
             </footer>
         </div>
     </div>

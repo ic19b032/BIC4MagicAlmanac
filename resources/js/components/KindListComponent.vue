@@ -1,5 +1,5 @@
 <template>
-    <div class="table-container">
+    <div class="table-container no-margin">
         <table class="table">
             <thead>
             <tr class="title is-7">
@@ -19,8 +19,8 @@
                         <i class="fa fa-comment"></i>&nbsp;{{ kind.name }}
                     </a>
                 </td>
-<!--                <td>{{ kind.kind.name }}</td>-->
-<!--                <td>{{ kind.description }}</td>-->
+                <td>{{ kind.name }}</td>
+                <td>{{ kind.description }}</td>
                 <td>{{ kind.created_at | moment('DD.MM.YYYY') }}</td>
                 <td>{{ kind.updated_at | moment('DD.MM.YYYY') }}</td>
                 <td>
