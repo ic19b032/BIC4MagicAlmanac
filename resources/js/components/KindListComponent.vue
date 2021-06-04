@@ -48,7 +48,7 @@
 export default {
     name: "KindListComponent",
     props: {
-        kinds: { // war noch auf "spells"
+        kinds: {
             required: true
         }
     },
@@ -66,6 +66,3 @@ export default {
 }
 </script>
 
-<!--<style scoped>-->
-
-<!--</style>-->

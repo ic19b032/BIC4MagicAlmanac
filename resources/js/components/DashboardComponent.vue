@@ -4,7 +4,6 @@
             <div class="card blog-card column is-half is-offset-one-quarter">
                 <header class="card-header">
                     <h1 class="card-header-title is-centered">
-<!--                    <h1 class="card-header-title is-centered" v-text="title">-->
                         {{title}}
                     </h1>
                 </header>
