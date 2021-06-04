@@ -1,5 +1,5 @@
 <template>
-    <div class="table-container">
+    <div class="table-container no-margin">
         <table class="table">
             <thead>
             <tr class="title is-7">
@@ -65,7 +65,3 @@ export default {
     }
 }
 </script>
-
-<style scoped>
-
-</style>

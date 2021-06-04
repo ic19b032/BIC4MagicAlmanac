@@ -36,11 +36,3 @@ export default {
     },
 }
 </script>
-
-<style scoped>
-    .panel-block {
-        display: block;
-        background-color: #fff;
-        padding: 16px;
-    }
-</style>

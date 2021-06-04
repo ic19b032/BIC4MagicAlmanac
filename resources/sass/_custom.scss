@@ -64,7 +64,9 @@ body {
 .message-body,
 table,
 .panel,
-.panel-block {
+.panel-block,
+.modal-card,
+.notification {
     border-radius: 15px;
 }
 
@@ -77,7 +79,9 @@ table,
 //change the background-color of cards and boxes
 .card,
 .box,
-.panel {
+.panel,
+.modal-card-body,
+.modal-card-foot {
     background-color: $dark-green-accent;
 }
 
@@ -94,8 +98,9 @@ table,
     padding-right: 0px;
 }
 
-//move the card-header more to the inside of a card and make the card-header background purple
-.card-header {
+//make the card-header and modal-card-header background purple
+.card-header,
+.modal-card-head {
     background-color: $purple-accent;
 }
 
@@ -103,7 +108,9 @@ table,
 .card,
 .card-header-title,
 .label,
-.checkbox {
+.checkbox,
+.modal-card-title,
+.modal-card-body {
     color: $light-green-accent;
 }
 
@@ -134,8 +141,10 @@ table,
 .navbar-link.is-active::after {
     border-color: $purple-accent;
 }
-//no border between navbar-dropdown and navbar-link
-.navbar-dropdown {
+//no border between navbar-dropdown & navbar-link and no border between modal-card-head & modal-card-body and no border between modal-card-body & modal-card-foot
+.navbar-dropdown,
+.modal-card-head,
+.modal-card-foot {
     border: none;
 }
 
@@ -298,4 +307,37 @@ a:hover {
 .button.is-info.is-outlined {
     color: $blue-accent;
     border-color: $blue-accent;
+}
+
+//center the text in a modal-card
+.modal-card {
+    text-align: center;
+}
+
+//change the font size of the text in the modal-card-body
+.modal-card-body {
+    font-size: 18px;
+}
+
+//center the div element that contains the buttons in the modal-card-foot
+.modal-card-foot-buttons {
+    margin: auto;
+}
+
+//make the distance between the buttons in the modal-card-foot bigger
+.modal-card-foot .button:not(:last-child) {
+    margin-right: 4.5em;
+}
+
+//change the style of light buttons, used for the modal-card cancel button and the register button on the start page
+.button.is-light,
+.button.is-light:hover {
+    background-color: $light-green-accent;
+    border-color: transparent;
+    color: $dark-green-accent;
+}
+
+//remove the margin on the table-container for the kinds list
+.table-container.no-margin {
+    margin: 0px;
 }

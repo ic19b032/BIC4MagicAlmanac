@@ -62,7 +62,7 @@
                                 </p>
                             </div>
 
-                            <button type="submit" class="button is-large is-primary is-outlined is-fullwidth"
+                            <button type="submit" class="button is-large is-primary is-outlined is-fullwidth push-button-down"
                                     :disabled="loading">
                                 {{edit ? 'Save' : 'Create'}}
                             </button>
@@ -176,7 +176,3 @@ export default {
 
 }
 </script>
-
-<style scoped>
-
-</style>
