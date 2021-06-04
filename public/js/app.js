@@ -11978,6 +11978,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: {
     title: {
@@ -11998,6 +11999,24 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -12125,10 +12144,10 @@ __webpack_require__.r(__webpack_exports__);
 var form = new Form({
   'id': '',
   'name': '',
-  'quote': '',
-  'description': '',
-  'kind_id': '',
-  'noReset': ['kind_id']
+  // 'quote': '',
+  'description': '' // 'kind_id': '',
+  // 'noReset': ['kind_id']
+
 });
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "KindFormComponent",
@@ -12141,7 +12160,7 @@ var form = new Form({
       type: Boolean,
       "default": false
     },
-    currentSpell: {
+    currentKind: {
       required: false,
       type: Object
     }
@@ -12162,11 +12181,12 @@ var form = new Form({
       if (this.edit) this.form.put(this.url);else this.form.post(this.url).then(function (response) {
         _this.url = '/kind/' + response.slug;
         _this.form.id = response.id;
-        _this.form.name = response.name;
-        _this.form.quote = response.quote;
-        _this.form.description = response.description;
-        _this.form.kind_id = response.kind_id;
-        _this.form.noReset = ['id', 'name', 'quote', 'description', 'kind_id'];
+        _this.form.name = response.name; // this.form.quote = response.quote;
+
+        _this.form.description = response.description; // this.form.kind_id = response.kind_id;
+        // this.form.noReset = ['id', 'name', 'quote', 'description', 'kind_id'];
+
+        _this.form.noReset = ['id', 'name', 'description'];
         _this.edit = true;
         window.history.pushState("", "", _this.url);
       });
@@ -12184,11 +12204,12 @@ var form = new Form({
     if (this.edit) {
       this.url = '/kind/' + this.currentKind.slug;
       this.form.id = this.currentKind.id;
-      this.form.name = this.currentKind.name;
-      this.form.quote = this.currentKind.quote;
-      this.form.description = this.currentKind.description;
-      this.form.kind_id = this.currentKind.kind_id;
-      this.form.noReset = ['id', 'name', 'quote', 'description', 'kind_id'];
+      this.form.name = this.currentKind.name; // this.form.quote = this.currentKind.quote;
+
+      this.form.description = this.currentKind.description; // this.form.kind_id = this.currentKind.kind_id;
+      // this.form.noReset = ['id', 'name', 'quote', 'description', 'kind_id'];
+
+      this.form.noReset = ['id', 'name', 'description'];
     } else {
       this.url = '/kind';
     }
@@ -12201,6 +12222,7 @@ var form = new Form({
   watch: {
     categories: function categories() {
       if (!this.loading && this.form.kind_id === '') {
+        // if (!this.loading) {
         this.form.kind_id = _.first(this.categories).id;
       }
     }
@@ -12268,6 +12290,7 @@ __webpack_require__.r(__webpack_exports__);
   name: "KindListComponent",
   props: {
     kinds: {
+      // war noch auf "spells"
       required: true
     }
   },
@@ -12276,7 +12299,7 @@ __webpack_require__.r(__webpack_exports__);
       this.$emit('open-modal', {
         id: kind.id,
         title: kind.name,
-        content: 'Do you really want to delete this spell?',
+        content: 'Do you really want to delete this kind?',
         url: '/kind/' + kind.slug
       });
     }
@@ -12321,7 +12344,10 @@ __webpack_require__.r(__webpack_exports__);
   },
   data: function data() {
     return {
-      fields: ['name', 'quote', 'description', 'created_ar', 'updated_at'],
+      // 'quote' raus (da kinds Tabelle kein 'quote' hat); RS Fehler bei 'created_ar'
+      fields: ['name', 'description', 'created_at', 'updated_at'],
+      // fields: ['name', 'quote', 'description', 'created_at', 'updated_at'],
+      // SEARCH DARF NICHT RAUS !!!!
       search: '',
       kinds: [],
       modalActive: false,
@@ -12364,23 +12390,22 @@ __webpack_require__.r(__webpack_exports__);
   created: function created() {
     this.kinds = this.allKinds;
   },
-  computed: {
-    filteredKinds: function filteredKinds() {
-      var _this = this;
-
-      var search = this.search.toLowerCase();
-      return this.kinds.filter(function (kinds) {
-        var filter = false;
-
-        _this.fields.forEach(function (entry) {
-          if (kinds[entry].toLowerCase().match(search) || kinds.kind.name.toLowerCase().match(search) || kinds.kind.description.toLowerCase().match(search)) {
-            filter = true;
-          }
-        });
-
-        return filter ? kinds : false;
-      });
-    }
+  computed: {// filteredKinds() {
+    //     const search = this.search.toLowerCase();
+    //     return this.kinds.filter((kinds) => {
+    //         let filter = false;
+    //         this.fields.forEach(function (entry) {
+    //             if (kinds[entry].toLowerCase().match(search)
+    //                 || kinds.kind.name.toLowerCase().match(search)
+    //                 || kinds.kind.description.toLowerCase().match(search)
+    //                 )
+    //             {
+    //                 filter = true;
+    //             }
+    //         });
+    //         return filter ? kinds : false;
+    //     });
+    // }
   }
 });
 
@@ -12395,6 +12420,46 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -12443,6 +12508,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+//
 //
 //
 //
@@ -30622,9 +30688,9 @@ var render = function() {
           _c("header", { staticClass: "card-header" }, [
             _c("h1", { staticClass: "card-header-title is-centered" }, [
               _vm._v(
-                "\n                    " +
+                "\n                        " +
                   _vm._s(_vm.title) +
-                  "\n                "
+                  "\n                    "
               )
             ])
           ]),
@@ -30687,15 +30753,50 @@ var render = function() {
           ])
         ]),
         _vm._v(" "),
-        _c("div", {
-          staticClass: "panel-block markdown-body",
-          domProps: { textContent: _vm._s(this.kind.description) }
-        })
+        _c("div", { staticClass: "panel-block markdown-body" }, [
+          _c("div", { staticClass: "level" }, [
+            _vm._m(0),
+            _vm._v(" "),
+            _c("div", { staticClass: "level-right" }, [
+              _c("p", {
+                staticClass: "level-item has-text-centered",
+                domProps: { textContent: _vm._s(this.kind.description) }
+              })
+            ])
+          ])
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "panel-button-push-inwards" }, [
+          _c("a", { attrs: { href: "/kind/" + this.kind.slug + "/edit" } }, [
+            _c(
+              "button",
+              {
+                staticClass:
+                  "button is-large is-fullwidth is-primary is-outlined push-button-down",
+                attrs: { type: "submit" }
+              },
+              [_vm._v("\n                        Edit\n                    ")]
+            )
+          ])
+        ])
       ])
     ])
   ])
 }
-var staticRenderFns = []
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "level-left" }, [
+      _c("p", { staticClass: "level-item has-text-centered" }, [
+        _vm._v(
+          "\n                            Description:\n                        "
+        )
+      ])
+    ])
+  }
+]
 render._withStripped = true
 
 
@@ -30726,9 +30827,9 @@ var render = function() {
           _c("header", { staticClass: "card-header" }, [
             _c("h1", { staticClass: "card-header-title is-centered" }, [
               _vm._v(
-                "\n                    " +
+                "\n                        " +
                   _vm._s(_vm.edit ? _vm.form.name : "New kind") +
-                  "\n                "
+                  "\n                    "
               )
             ])
           ]),
@@ -30782,151 +30883,14 @@ var render = function() {
                         _vm.form.errors.has("name")
                           ? _c("p", { staticClass: "help is-danger" }, [
                               _vm._v(
-                                "\n                                " +
+                                "\n                                    " +
                                   _vm._s(_vm.form.errors.get("name")) +
-                                  "\n                            "
+                                  "\n                                "
                               )
                             ])
                           : _vm._e()
                       ])
                     : _vm._e(),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "field" }, [
-                    _c(
-                      "label",
-                      { staticClass: "label", attrs: { for: "kind" } },
-                      [_vm._v("Kind")]
-                    ),
-                    _vm._v(" "),
-                    _c("div", { staticClass: "control" }, [
-                      _c(
-                        "div",
-                        {
-                          staticClass: "select is-fullwidth",
-                          class: _vm.loading ? "is-loading" : ""
-                        },
-                        [
-                          _c(
-                            "select",
-                            {
-                              directives: [
-                                {
-                                  name: "model",
-                                  rawName: "v-model",
-                                  value: _vm.form.kind_id,
-                                  expression: "form.kind_id"
-                                }
-                              ],
-                              attrs: { id: "kind", disabled: _vm.loading },
-                              on: {
-                                change: function($event) {
-                                  var $$selectedVal = Array.prototype.filter
-                                    .call($event.target.options, function(o) {
-                                      return o.selected
-                                    })
-                                    .map(function(o) {
-                                      var val =
-                                        "_value" in o ? o._value : o.value
-                                      return val
-                                    })
-                                  _vm.$set(
-                                    _vm.form,
-                                    "kind_id",
-                                    $event.target.multiple
-                                      ? $$selectedVal
-                                      : $$selectedVal[0]
-                                  )
-                                }
-                              }
-                            },
-                            [
-                              _vm.loading
-                                ? _c(
-                                    "option",
-                                    { domProps: { value: this.form.kind_id } },
-                                    [_vm._v(" Loading...")]
-                                  )
-                                : _vm._e(),
-                              _vm._v(" "),
-                              _vm._l(_vm.categories, function(cat) {
-                                return !_vm.loading
-                                  ? _c(
-                                      "option",
-                                      { domProps: { value: cat.id } },
-                                      [
-                                        _vm._v(
-                                          "\n                                            " +
-                                            _vm._s(cat.name) +
-                                            "\n                                        "
-                                        )
-                                      ]
-                                    )
-                                  : _vm._e()
-                              })
-                            ],
-                            2
-                          )
-                        ]
-                      )
-                    ]),
-                    _vm._v(" "),
-                    _vm.form.errors.has("kind_id")
-                      ? _c("p", { staticClass: "help is-danger" }, [
-                          _vm._v(
-                            "\n                                " +
-                              _vm._s(_vm.form.errors.get("kind_id")) +
-                              "\n                            "
-                          )
-                        ])
-                      : _vm._e(),
-                    _vm.noCategories
-                      ? _c("p", { staticClass: "help is-warning" }, [
-                          _vm._v("Add a kind to create spells!")
-                        ])
-                      : _vm._e()
-                  ]),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "field" }, [
-                    _c(
-                      "label",
-                      { staticClass: "label", attrs: { for: "quote" } },
-                      [_vm._v("Quote")]
-                    ),
-                    _vm._v(" "),
-                    _c("div", { staticClass: "control" }, [
-                      _c("input", {
-                        directives: [
-                          {
-                            name: "model",
-                            rawName: "v-model",
-                            value: _vm.form.quote,
-                            expression: "form.quote"
-                          }
-                        ],
-                        staticClass: "input",
-                        attrs: { id: "quote", maxlength: "120" },
-                        domProps: { value: _vm.form.quote },
-                        on: {
-                          input: function($event) {
-                            if ($event.target.composing) {
-                              return
-                            }
-                            _vm.$set(_vm.form, "quote", $event.target.value)
-                          }
-                        }
-                      })
-                    ]),
-                    _vm._v(" "),
-                    _vm.form.errors.has("quote")
-                      ? _c("p", { staticClass: "help is-danger" }, [
-                          _vm._v(
-                            "\n                                " +
-                              _vm._s(_vm.form.errors.get("quote")) +
-                              "\n                            "
-                          )
-                        ])
-                      : _vm._e()
-                  ]),
                   _vm._v(" "),
                   _c("div", { staticClass: "field" }, [
                     _c(
@@ -30966,9 +30930,9 @@ var render = function() {
                     _vm.form.errors.has("description")
                       ? _c("p", { staticClass: "help is-danger" }, [
                           _vm._v(
-                            "\n                                " +
+                            "\n                                    " +
                               _vm._s(_vm.form.errors.get("description")) +
-                              "\n                            "
+                              "\n                                "
                           )
                         ])
                       : _vm._e()
@@ -30983,9 +30947,9 @@ var render = function() {
                     },
                     [
                       _vm._v(
-                        "\n                            " +
+                        "\n                                " +
                           _vm._s(_vm.edit ? "Save" : "Create") +
-                          "\n                        "
+                          "\n                            "
                       )
                     ]
                   )
@@ -31052,43 +31016,52 @@ var render = function() {
             ]),
             _vm._v(" "),
             _c("td", [
-              _c("p", { staticClass: "field is-grouped" }, [
-                _c(
-                  "a",
-                  {
-                    staticClass: "button is-info is-outlined is-small",
-                    attrs: { href: "/kind/" + kind.slug + "/edit" }
-                  },
-                  [
-                    _c(
-                      "span",
-                      { staticClass: "icon" },
-                      [_c("font-awesome-icon", { attrs: { icon: "wrench" } })],
-                      1
-                    )
-                  ]
-                ),
-                _vm._v(" "),
-                _c(
-                  "button",
-                  {
-                    staticClass: "button is-danger is-outlined is-small",
-                    on: {
-                      click: function($event) {
-                        return _vm.openDeleteModal(kind)
+              _c(
+                "p",
+                {
+                  staticClass: "field is-grouped",
+                  attrs: { id: "modify-column-element" }
+                },
+                [
+                  _c(
+                    "a",
+                    {
+                      staticClass: "button is-info is-outlined is-small",
+                      attrs: { href: "/kind/" + kind.slug + "/edit" }
+                    },
+                    [
+                      _c(
+                        "span",
+                        { staticClass: "icon" },
+                        [
+                          _c("font-awesome-icon", { attrs: { icon: "wrench" } })
+                        ],
+                        1
+                      )
+                    ]
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "button",
+                    {
+                      staticClass: "button is-danger is-outlined is-small",
+                      on: {
+                        click: function($event) {
+                          return _vm.openDeleteModal(kind)
+                        }
                       }
-                    }
-                  },
-                  [
-                    _c(
-                      "span",
-                      { staticClass: "icon" },
-                      [_c("font-awesome-icon", { attrs: { icon: "trash" } })],
-                      1
-                    )
-                  ]
-                )
-              ])
+                    },
+                    [
+                      _c(
+                        "span",
+                        { staticClass: "icon" },
+                        [_c("font-awesome-icon", { attrs: { icon: "trash" } })],
+                        1
+                      )
+                    ]
+                  )
+                ]
+              )
             ])
           ])
         }),
@@ -31104,17 +31077,19 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c("thead", [
       _c("tr", { staticClass: "title is-7" }, [
-        _c("th", [_vm._v("Name")]),
+        _c("th", { staticClass: "header-warp-override" }, [_vm._v("Name")]),
         _vm._v(" "),
-        _c("th", [_vm._v("Kind")]),
+        _c("th", { staticClass: "header-warp-override" }, [_vm._v("Kind")]),
         _vm._v(" "),
-        _c("th", [_vm._v("Quote")]),
+        _c("th", { staticClass: "header-warp-override" }, [
+          _vm._v("Description")
+        ]),
         _vm._v(" "),
-        _c("th", [_vm._v("Created")]),
+        _c("th", { staticClass: "header-warp-override" }, [_vm._v("Created")]),
         _vm._v(" "),
-        _c("th", [_vm._v("Modified")]),
+        _c("th", { staticClass: "header-warp-override" }, [_vm._v("Modified")]),
         _vm._v(" "),
-        _c("th", [_vm._v("Modify")])
+        _c("th", { staticClass: "header-warp-override" }, [_vm._v("Modify")])
       ])
     ])
   }
@@ -31248,15 +31223,92 @@ var render = function() {
           ])
         ]),
         _vm._v(" "),
-        _c("div", {
-          staticClass: "panel-block markdown-body",
-          domProps: { textContent: _vm._s(this.spell.description) }
-        })
+        _c("div", { staticClass: "panel-block markdown-body" }, [
+          _c("div", { staticClass: "level" }, [
+            _vm._m(0),
+            _vm._v(" "),
+            _c("div", { staticClass: "level-right" }, [
+              _c("p", {
+                staticClass: "level-item has-text-centered",
+                domProps: { textContent: _vm._s(this.spell.kind_id) }
+              })
+            ])
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "level" }, [
+            _vm._m(1),
+            _vm._v(" "),
+            _c("div", { staticClass: "level-right" }, [
+              _c("p", {
+                staticClass: "level-item has-text-centered",
+                domProps: { textContent: _vm._s(this.spell.quote) }
+              })
+            ])
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "level" }, [
+            _vm._m(2),
+            _vm._v(" "),
+            _c("div", { staticClass: "level-right" }, [
+              _c("p", {
+                staticClass: "level-item has-text-centered",
+                domProps: { textContent: _vm._s(this.spell.description) }
+              })
+            ])
+          ])
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "panel-button-push-inwards" }, [
+          _c("a", { attrs: { href: "/spell/" + this.spell.slug + "/edit" } }, [
+            _c(
+              "button",
+              {
+                staticClass:
+                  "button is-large is-fullwidth is-primary is-outlined push-button-down",
+                attrs: { type: "submit" }
+              },
+              [_vm._v("\n                        Edit\n                    ")]
+            )
+          ])
+        ])
       ])
     ])
   ])
 }
-var staticRenderFns = []
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "level-left" }, [
+      _c("p", { staticClass: "level-item has-text-centered" }, [
+        _vm._v("\n                            Kind:\n                        ")
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "level-left" }, [
+      _c("p", { staticClass: "level-item has-text-centered" }, [
+        _vm._v("\n                            Quote:\n                        ")
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "level-left" }, [
+      _c("p", { staticClass: "level-item has-text-centered" }, [
+        _vm._v(
+          "\n                            Description:\n                        "
+        )
+      ])
+    ])
+  }
+]
 render._withStripped = true
 
 
@@ -31287,9 +31339,9 @@ var render = function() {
           _c("header", { staticClass: "card-header" }, [
             _c("h1", { staticClass: "card-header-title is-centered" }, [
               _vm._v(
-                "\n                    " +
+                "\n                        " +
                   _vm._s(_vm.edit ? _vm.form.name : "New spell") +
-                  "\n                "
+                  "\n                    "
               )
             ])
           ]),
@@ -31343,9 +31395,9 @@ var render = function() {
                         _vm.form.errors.has("name")
                           ? _c("p", { staticClass: "help is-danger" }, [
                               _vm._v(
-                                "\n                                " +
+                                "\n                                    " +
                                   _vm._s(_vm.form.errors.get("name")) +
-                                  "\n                            "
+                                  "\n                                "
                               )
                             ])
                           : _vm._e()
@@ -31416,9 +31468,9 @@ var render = function() {
                                       { domProps: { value: cat.id } },
                                       [
                                         _vm._v(
-                                          "\n                                            " +
+                                          "\n                                                " +
                                             _vm._s(cat.name) +
-                                            "\n                                        "
+                                            "\n                                            "
                                         )
                                       ]
                                     )
@@ -31434,9 +31486,9 @@ var render = function() {
                     _vm.form.errors.has("kind_id")
                       ? _c("p", { staticClass: "help is-danger" }, [
                           _vm._v(
-                            "\n                                " +
+                            "\n                                    " +
                               _vm._s(_vm.form.errors.get("kind_id")) +
-                              "\n                            "
+                              "\n                                "
                           )
                         ])
                       : _vm._e(),
@@ -31481,9 +31533,9 @@ var render = function() {
                     _vm.form.errors.has("quote")
                       ? _c("p", { staticClass: "help is-danger" }, [
                           _vm._v(
-                            "\n                                " +
+                            "\n                                    " +
                               _vm._s(_vm.form.errors.get("quote")) +
-                              "\n                            "
+                              "\n                                "
                           )
                         ])
                       : _vm._e()
@@ -31527,9 +31579,9 @@ var render = function() {
                     _vm.form.errors.has("description")
                       ? _c("p", { staticClass: "help is-danger" }, [
                           _vm._v(
-                            "\n                                " +
+                            "\n                                    " +
                               _vm._s(_vm.form.errors.get("description")) +
-                              "\n                            "
+                              "\n                                "
                           )
                         ])
                       : _vm._e()
@@ -31544,9 +31596,9 @@ var render = function() {
                     },
                     [
                       _vm._v(
-                        "\n                            " +
+                        "\n                                " +
                           _vm._s(_vm.edit ? "Save" : "Create") +
-                          "\n                        "
+                          "\n                            "
                       )
                     ]
                   )
@@ -48941,11 +48993,13 @@ Vue.component('dashboard', __webpack_require__(/*! ./components/DashboardCompone
 Vue.component('spell', __webpack_require__(/*! ./components/SpellComponent.vue */ "./resources/js/components/SpellComponent.vue")["default"]);
 Vue.component('spells', __webpack_require__(/*! ./components/SpellsComponent.vue */ "./resources/js/components/SpellsComponent.vue")["default"]);
 Vue.component('spell-form', __webpack_require__(/*! ./components/SpellFormComponent.vue */ "./resources/js/components/SpellFormComponent.vue")["default"]);
-Vue.component('spell-list', __webpack_require__(/*! ./components/SpellListComponent.vue */ "./resources/js/components/SpellListComponent.vue")["default"]);
+Vue.component('spell-list', __webpack_require__(/*! ./components/SpellListComponent.vue */ "./resources/js/components/SpellListComponent.vue")["default"]); // Vue.component('spell-list', require('./components/KindListComponent.vue').default);
+
 Vue.component('kind', __webpack_require__(/*! ./components/KindComponent.vue */ "./resources/js/components/KindComponent.vue")["default"]);
 Vue.component('kinds', __webpack_require__(/*! ./components/KindsComponent.vue */ "./resources/js/components/KindsComponent.vue")["default"]);
 Vue.component('kind-form', __webpack_require__(/*! ./components/KindFormComponent.vue */ "./resources/js/components/KindFormComponent.vue")["default"]);
-Vue.component('kind-list', __webpack_require__(/*! ./components/KindListComponent.vue */ "./resources/js/components/KindListComponent.vue")["default"]);
+Vue.component('kind-list', __webpack_require__(/*! ./components/KindListComponent.vue */ "./resources/js/components/KindListComponent.vue")["default"]); // Vue.component('kind-list', require('./components/SpellListComponent.vue').default);
+
 Vue.component('query-message', __webpack_require__(/*! ./components/base/QueryMessageComponent.vue */ "./resources/js/components/base/QueryMessageComponent.vue")["default"]);
 /**
  * Next, we will create a fresh Vue application instance and attach it to

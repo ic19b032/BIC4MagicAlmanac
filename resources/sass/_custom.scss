@@ -127,14 +127,28 @@ table,
 }
 
 //when hovering over a navbar-item child of a navbar-link will be in the hover color too
+//the background color option is present to fix an issue when hovering over navbar-items when the page is in mobile view (the background-color switched back to the dark-green-accent in mobile view)
 .navbar-item:hover > .navbar-link {
     color: $dark-green-accent;
+    background-color: $light-green-accent;
 }
 
 //when hovering over a navbar-link or over a navbar-item child of a navbar-link color the arrow of the navbar-link will be in the hover color too
 .navbar-link:hover::after,
 .navbar-item:hover > .navbar-link::after {
     border-color: $dark-green-accent;
+}
+
+//fixing the text color and the background-color of active navbar-links and a.navbar-items when in mobile view
+.navbar-link.is-active,
+a.navbar-item.is-active {
+    color: $purple-accent;
+    background-color: $dark-green-accent;
+}
+
+//fixing the background-color when hovering over active a.navbar-items in mobile view
+a.navbar-item.is-active:hover {
+    background-color: $light-green-accent;
 }
 
 //when a navbar-link is active color the arrow of the navbar-link in the active color too
@@ -213,10 +227,11 @@ strong {
     font-weight: bold;
 }
 
-//remove panel-heading border
+//remove panel-heading & panel-block border and make level classes usable in panel-block
 .panel-heading:first-child,
 .panel-block {
     border: none;
+    display: block;
 }
 
 //move the panel-block inwards and add color
@@ -232,6 +247,17 @@ strong {
 //moving the content in a panel away from the edge (needed for the item detail page)
 .panel {
     padding-bottom: 25px;
+}
+
+//class for a div to push the edit button on a panel inwards
+.panel-button-push-inwards {
+    padding-left: 25px;
+    padding-right: 25px;
+}
+
+.level-reflow {
+    overflow-wrap: break-word;
+    word-wrap: break-word;
 }
 
 //make the action buttons in a table stay in a line
@@ -340,4 +366,20 @@ a:hover {
 //remove the margin on the table-container for the kinds list
 .table-container.no-margin {
     margin: 0px;
+}
+
+//fixing text flow in a level container at certain browser window widths
+@media screen and (min-width: 769px) and (max-width: 1407px) {
+    .level,
+    .level-left,
+    .level-right {
+        display: inherit;
+    }
+}
+
+//fixing the vertical distance between the children of a level container at certain window widths
+@media screen and (min-width: 769px) and (max-width: 1407px) {
+    .level-left + .level-right {
+        margin-top: 1.5rem;
+    }
 }

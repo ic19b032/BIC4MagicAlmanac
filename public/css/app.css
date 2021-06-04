@@ -11836,11 +11836,22 @@ table,
 
 .navbar-item:hover > .navbar-link {
   color: #1A6135;
+  background-color: #83E6A9;
 }
 
 .navbar-link:hover::after,
 .navbar-item:hover > .navbar-link::after {
   border-color: #1A6135;
+}
+
+.navbar-link.is-active,
+a.navbar-item.is-active {
+  color: #34008f;
+  background-color: #1A6135;
+}
+
+a.navbar-item.is-active:hover {
+  background-color: #83E6A9;
 }
 
 .navbar-link.is-active::after {
@@ -11910,6 +11921,7 @@ strong {
 .panel-heading:first-child,
 .panel-block {
   border: none;
+  display: block;
 }
 
 .panel-block {
@@ -11923,6 +11935,16 @@ strong {
 
 .panel {
   padding-bottom: 25px;
+}
+
+.panel-button-push-inwards {
+  padding-left: 25px;
+  padding-right: 25px;
+}
+
+.level-reflow {
+  overflow-wrap: break-word;
+  word-wrap: break-word;
 }
 
 #modify-column-element {
@@ -12041,5 +12063,19 @@ a:hover {
 
 .table-container.no-margin {
   margin: 0px;
+}
+
+@media screen and (min-width: 769px) and (max-width: 1407px) {
+  .level,
+  .level-left,
+  .level-right {
+    display: inherit;
+  }
+}
+
+@media screen and (min-width: 769px) and (max-width: 1407px) {
+  .level-left + .level-right {
+    margin-top: 1.5rem;
+  }
 }
 

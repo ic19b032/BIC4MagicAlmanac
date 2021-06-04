@@ -16,7 +16,25 @@
                         </div>
                     </div>
                 </div>
-                <div class="panel-block markdown-body" v-text="this.kind.description"/>
+                <div class="panel-block markdown-body">
+                    <div class="level">
+                        <div class="level-left">
+                            <p class="level-item has-text-centered">
+                                Description:
+                            </p>
+                        </div>
+                        <div class="level-right">
+                            <p class="level-item has-text-centered" v-text="this.kind.description"/>
+                        </div>
+                    </div>
+                </div>
+                <div class="panel-button-push-inwards">
+                    <a :href="'/kind/' + this.kind.slug + '/edit'">
+                        <button type="submit" class="button is-large is-fullwidth is-primary is-outlined push-button-down">
+                            Edit
+                        </button>
+                    </a>
+                </div>
             </article>
         </div>
     </div>
