@@ -23,35 +23,6 @@
                                     {{form.errors.get('name')}}
                                 </p>
                             </div>
-
-<!--                            <div class="field">-->
-<!--                                <label class="label" for="kind">Kind</label>-->
-<!--                                <div class="control">-->
-<!--                                    <div class="select is-fullwidth" :class="loading ? 'is-loading' : ''">-->
-<!--                                        <select id="kind" :disabled="loading" v-model="form.kind_id">-->
-<!--                                            <option v-if="loading" :value="this.form.kind_id"> Loading...</option>-->
-<!--                                            <option v-for="cat in categories" v-if="!loading" :value="cat.id">-->
-<!--                                                {{cat.name}}-->
-<!--                                            </option>-->
-<!--                                        </select>-->
-<!--                                    </div>-->
-<!--                                </div>-->
-<!--                                <p class="help is-danger" v-if="form.errors.has('kind_id')">-->
-<!--                                    {{form.errors.get('kind_id')}}-->
-<!--                                <p v-if="noCategories" class="help is-warning">Add a kind to create spells!</p>-->
-<!--                            </div>-->
-
-<!--                            <div class="field">-->
-<!--                                <label class="label" for="quote">Quote</label>-->
-<!--                                <div class="control">-->
-<!--                                    <input id="quote" v-model="form.quote" class="input" maxlength="120"/>-->
-<!--                                </div>-->
-<!--                                <p class="help is-danger" v-if="form.errors.has('quote')">-->
-<!--                                    {{form.errors.get('quote')}}-->
-<!--                                </p>-->
-<!--                            </div>-->
-
-
                             <div class="field">
                                 <label class="label" for="description">Description</label>
                                 <div class="control">
@@ -78,10 +49,7 @@
 let form = new Form({
     'id': '',
     'name': '',
-    // 'quote': '',
     'description': ''
-    // 'kind_id': '',
-    // 'noReset': ['kind_id']
 });
 
 export default {
@@ -122,13 +90,8 @@ export default {
 
                         this.form.id = response.id;
                         this.form.name = response.name;
-                        // this.form.quote = response.quote;
                         this.form.description = response.description;
-                        // this.form.kind_id = response.kind_id;
-
-                        // this.form.noReset = ['id', 'name', 'quote', 'description', 'kind_id'];
                         this.form.noReset = ['id', 'name', 'description'];
-
                         this.edit = true;
 
                         window.history.pushState("", "", this.url);
@@ -150,11 +113,7 @@ export default {
             this.url = '/kind/' + this.currentKind.slug;
             this.form.id = this.currentKind.id;
             this.form.name = this.currentKind.name;
-            // this.form.quote = this.currentKind.quote;
             this.form.description = this.currentKind.description;
-            // this.form.kind_id = this.currentKind.kind_id;
-
-            // this.form.noReset = ['id', 'name', 'quote', 'description', 'kind_id'];
             this.form.noReset = ['id', 'name', 'description'];
         } else {
             this.url = '/kind';
@@ -170,12 +129,10 @@ export default {
     watch: {
         categories() {
             if (!this.loading && this.form.kind_id === '') {
-            // if (!this.loading) {
                 this.form.kind_id = _.first(this.categories).id;
             }
         }
     }
-
 
 }
 </script>
