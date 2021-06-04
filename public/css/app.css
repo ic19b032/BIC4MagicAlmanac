@@ -12065,6 +12065,20 @@ a:hover {
   margin: 0px;
 }
 
+@media screen and (min-width: 1408px) {
+  .level-item.has-text-centered {
+    text-align: right !important;
+  }
+}
+
+@media screen and (min-width: 1408px) {
+  .level-left,
+  .level-right {
+    display: block;
+    flex-shrink: 1;
+  }
+}
+
 @media screen and (min-width: 769px) and (max-width: 1407px) {
   .level,
   .level-left,

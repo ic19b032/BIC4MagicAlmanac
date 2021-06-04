@@ -11978,7 +11978,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: {
     title: {
@@ -12112,42 +12111,10 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 var form = new Form({
   'id': '',
   'name': '',
-  // 'quote': '',
-  'description': '' // 'kind_id': '',
-  // 'noReset': ['kind_id']
-
+  'description': ''
 });
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "KindFormComponent",
@@ -12181,11 +12148,8 @@ var form = new Form({
       if (this.edit) this.form.put(this.url);else this.form.post(this.url).then(function (response) {
         _this.url = '/kind/' + response.slug;
         _this.form.id = response.id;
-        _this.form.name = response.name; // this.form.quote = response.quote;
-
-        _this.form.description = response.description; // this.form.kind_id = response.kind_id;
-        // this.form.noReset = ['id', 'name', 'quote', 'description', 'kind_id'];
-
+        _this.form.name = response.name;
+        _this.form.description = response.description;
         _this.form.noReset = ['id', 'name', 'description'];
         _this.edit = true;
         window.history.pushState("", "", _this.url);
@@ -12204,11 +12168,8 @@ var form = new Form({
     if (this.edit) {
       this.url = '/kind/' + this.currentKind.slug;
       this.form.id = this.currentKind.id;
-      this.form.name = this.currentKind.name; // this.form.quote = this.currentKind.quote;
-
-      this.form.description = this.currentKind.description; // this.form.kind_id = this.currentKind.kind_id;
-      // this.form.noReset = ['id', 'name', 'quote', 'description', 'kind_id'];
-
+      this.form.name = this.currentKind.name;
+      this.form.description = this.currentKind.description;
       this.form.noReset = ['id', 'name', 'description'];
     } else {
       this.url = '/kind';
@@ -12222,7 +12183,6 @@ var form = new Form({
   watch: {
     categories: function categories() {
       if (!this.loading && this.form.kind_id === '') {
-        // if (!this.loading) {
         this.form.kind_id = _.first(this.categories).id;
       }
     }
@@ -12290,7 +12250,6 @@ __webpack_require__.r(__webpack_exports__);
   name: "KindListComponent",
   props: {
     kinds: {
-      // war noch auf "spells"
       required: true
     }
   },
@@ -12335,8 +12294,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   components: {
     QueryMessage: QueryMessage,
@@ -12346,8 +12303,6 @@ __webpack_require__.r(__webpack_exports__);
     return {
       // 'quote' raus (da kinds Tabelle kein 'quote' hat); RS Fehler bei 'created_ar'
       fields: ['name', 'description', 'created_at', 'updated_at'],
-      // fields: ['name', 'quote', 'description', 'created_at', 'updated_at'],
-      // SEARCH DARF NICHT RAUS !!!!
       search: '',
       kinds: [],
       modalActive: false,
@@ -12390,23 +12345,7 @@ __webpack_require__.r(__webpack_exports__);
   created: function created() {
     this.kinds = this.allKinds;
   },
-  computed: {// filteredKinds() {
-    //     const search = this.search.toLowerCase();
-    //     return this.kinds.filter((kinds) => {
-    //         let filter = false;
-    //         this.fields.forEach(function (entry) {
-    //             if (kinds[entry].toLowerCase().match(search)
-    //                 || kinds.kind.name.toLowerCase().match(search)
-    //                 || kinds.kind.description.toLowerCase().match(search)
-    //                 )
-    //             {
-    //                 filter = true;
-    //             }
-    //         });
-    //         return filter ? kinds : false;
-    //     });
-    // }
-  }
+  computed: {}
 });
 
 /***/ }),
@@ -30688,9 +30627,9 @@ var render = function() {
           _c("header", { staticClass: "card-header" }, [
             _c("h1", { staticClass: "card-header-title is-centered" }, [
               _vm._v(
-                "\n                        " +
+                "\n                    " +
                   _vm._s(_vm.title) +
-                  "\n                    "
+                  "\n                "
               )
             ])
           ]),
@@ -30827,9 +30766,9 @@ var render = function() {
           _c("header", { staticClass: "card-header" }, [
             _c("h1", { staticClass: "card-header-title is-centered" }, [
               _vm._v(
-                "\n                        " +
+                "\n                    " +
                   _vm._s(_vm.edit ? _vm.form.name : "New kind") +
-                  "\n                    "
+                  "\n                "
               )
             ])
           ]),
@@ -30883,9 +30822,9 @@ var render = function() {
                         _vm.form.errors.has("name")
                           ? _c("p", { staticClass: "help is-danger" }, [
                               _vm._v(
-                                "\n                                    " +
+                                "\n                                " +
                                   _vm._s(_vm.form.errors.get("name")) +
-                                  "\n                                "
+                                  "\n                            "
                               )
                             ])
                           : _vm._e()
@@ -30930,9 +30869,9 @@ var render = function() {
                     _vm.form.errors.has("description")
                       ? _c("p", { staticClass: "help is-danger" }, [
                           _vm._v(
-                            "\n                                    " +
+                            "\n                                " +
                               _vm._s(_vm.form.errors.get("description")) +
-                              "\n                                "
+                              "\n                            "
                           )
                         ])
                       : _vm._e()
@@ -30947,9 +30886,9 @@ var render = function() {
                     },
                     [
                       _vm._v(
-                        "\n                                " +
+                        "\n                            " +
                           _vm._s(_vm.edit ? "Save" : "Create") +
-                          "\n                            "
+                          "\n                        "
                       )
                     ]
                   )
@@ -48986,20 +48925,16 @@ Vue.use(__webpack_require__(/*! vue-moment */ "./node_modules/vue-moment/dist/vu
  * Eg. ./components/ExampleComponent.vue -> <example-component></example-component>
  */
 
-Vue.component('font-awesome-icon', _fortawesome_vue_fontawesome__WEBPACK_IMPORTED_MODULE_3__["FontAwesomeIcon"]); // const files = require.context('./', true, /\.vue$/i)
-// files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default))
-
+Vue.component('font-awesome-icon', _fortawesome_vue_fontawesome__WEBPACK_IMPORTED_MODULE_3__["FontAwesomeIcon"]);
 Vue.component('dashboard', __webpack_require__(/*! ./components/DashboardComponent.vue */ "./resources/js/components/DashboardComponent.vue")["default"]);
 Vue.component('spell', __webpack_require__(/*! ./components/SpellComponent.vue */ "./resources/js/components/SpellComponent.vue")["default"]);
 Vue.component('spells', __webpack_require__(/*! ./components/SpellsComponent.vue */ "./resources/js/components/SpellsComponent.vue")["default"]);
 Vue.component('spell-form', __webpack_require__(/*! ./components/SpellFormComponent.vue */ "./resources/js/components/SpellFormComponent.vue")["default"]);
-Vue.component('spell-list', __webpack_require__(/*! ./components/SpellListComponent.vue */ "./resources/js/components/SpellListComponent.vue")["default"]); // Vue.component('spell-list', require('./components/KindListComponent.vue').default);
-
+Vue.component('spell-list', __webpack_require__(/*! ./components/SpellListComponent.vue */ "./resources/js/components/SpellListComponent.vue")["default"]);
 Vue.component('kind', __webpack_require__(/*! ./components/KindComponent.vue */ "./resources/js/components/KindComponent.vue")["default"]);
 Vue.component('kinds', __webpack_require__(/*! ./components/KindsComponent.vue */ "./resources/js/components/KindsComponent.vue")["default"]);
 Vue.component('kind-form', __webpack_require__(/*! ./components/KindFormComponent.vue */ "./resources/js/components/KindFormComponent.vue")["default"]);
-Vue.component('kind-list', __webpack_require__(/*! ./components/KindListComponent.vue */ "./resources/js/components/KindListComponent.vue")["default"]); // Vue.component('kind-list', require('./components/SpellListComponent.vue').default);
-
+Vue.component('kind-list', __webpack_require__(/*! ./components/KindListComponent.vue */ "./resources/js/components/KindListComponent.vue")["default"]);
 Vue.component('query-message', __webpack_require__(/*! ./components/base/QueryMessageComponent.vue */ "./resources/js/components/base/QueryMessageComponent.vue")["default"]);
 /**
  * Next, we will create a fresh Vue application instance and attach it to
