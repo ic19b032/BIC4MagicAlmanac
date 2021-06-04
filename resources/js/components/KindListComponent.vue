@@ -4,7 +4,6 @@
             <thead>
             <tr class="title is-7">
                 <th class="header-warp-override">Name</th>
-                <th class="header-warp-override">Kind</th>
                 <th class="header-warp-override">Description</th>
                 <th class="header-warp-override">Created</th>
                 <th class="header-warp-override">Modified</th>
@@ -19,7 +18,6 @@
                         <i class="fa fa-comment"></i>&nbsp;{{ kind.name }}
                     </a>
                 </td>
-                <td>{{ kind.name }}</td>
                 <td>{{ kind.description }}</td>
                 <td>{{ kind.created_at | moment('DD.MM.YYYY') }}</td>
                 <td>{{ kind.updated_at | moment('DD.MM.YYYY') }}</td>
