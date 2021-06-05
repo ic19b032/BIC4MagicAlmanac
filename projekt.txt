@@ -52,5 +52,4 @@ jede Komponente hat ein <template> und "props"
 Achtung:
 wenn man einen Kind löscht, auf den ein Spell zeigt, dann können keine Spells mehr aufgelistet werden!!
 
-
-
+Final Commit done!
