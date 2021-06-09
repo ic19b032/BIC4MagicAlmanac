@@ -1,11 +1,75 @@
 # BIC4 Project: Magic almanac
 
-## The magic almanac
+## Butschek, Hanausek, Huber, Jeschek, Sahin
 
-This software lists magic spells and kinds belongs to them.
-It is possible to search for spells by various parameters.
 
-## Exercise
+
+## Description
+
+This software **lists** magic **spells** and **kinds** belonging to them.
+It is possible to **search** for **spells** by various **parameters**.
+It is also possible to **create** new spells and **edit** existing ones.
+It is necessary to **specify** a **kind** to which the spell belongs.
+
+You can also **list** all **kinds**.
+It is also possible to **create** and **edit** kinds.
+
+This project shows the basic usage of the **Laravel** framework in combination with VueJS.
+
+
+
+## Functionality
+
+### Welcome
+A **startpage**, which is shown to a **guest** (i.e. someone, who is not logged in).
+Also the **web application name** is presented.
+From there you can login and register.
+A **login** requires an email and a password.
+For a **registration** a name, email and password are required. 
+After a successful registration/login, the dashboard shows.
+
+### Home
+The **startpage**/dashboard shown to a logged in user.
+A welcome message to the logged in user and his/her **username** are displayed.
+On the **left top** you can choose between **Home**, creating/listing **spells** and creating/listing **kinds**.
+In the **upper right** corner you can see your **username**, and the option to **log out** by hovering over the displayed username.
+
+
+
+### Create spells
+
+Here you can **create** a new spell.
+You need to provide a name, kind, quote, and a description.
+A **kind category** is chosen automatically, so it is not possible to deselect/not choose a kind.
+After successful creation, the spell will show in the spells list.
+
+### List spells
+Here all the spells and their corresponding kinds are **listed**.
+It is possible to **search** a spell by a **partial match** in one of the categories from spell or kind.
+It is also possible to **edit/delete** spells.
+
+### Edit spells
+Here you can **change** the kind, quote, and description of the spell. The name is not changeable.
+
+
+
+### Create kinds
+
+Here you can **create** a new kind.
+You need to provide a name and a description.
+After successful creation, the kind will show in the kinds list.
+
+### List kinds
+Here you can **list all** kinds. It is not possible to search for kinds here.
+It is  possible to **edit/delete** kinds.
+
+### Edit kinds
+Here you can **edit** a kind by changing its description.
+The name of the kind is not changeable.
+
+
+
+## Angabe
 
 ### Already providing
 
@@ -49,10 +113,11 @@ Register your components in ```/resources/js/app.js``` and use them in the follo
       * ```/resources/views/spell/search.blade.php```
       * ```/resources/views/spell/show.blade.php```
       
+
 To query data for dropdowns in forms or to reload lists use the list routes:
  * **GET** ```/list/spell```
  * **GET** ```/list/kind```
- 
+
 For the search form use ```q``` as the name for the text input.
 The search will be handled by the backend.
 
